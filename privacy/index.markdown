@@ -10,7 +10,7 @@ sharing: false
 
 ## What? Why Have A Privacy Policy?
 
-Well, you wouldn't want Haacked.com sharing all sorts of deeply
+Well, you wouldn't want Codesennin.com sharing all sorts of deeply
 personal information about you, would you? Well of course not. Besides,
 some affiliate programs require a privacy policy. So here you go, a
 privacy policy.
@@ -24,7 +24,7 @@ prying eyes.
 
 ## How Do You Guarantee Privacy?
 
-As in life, there are no perfect guarantees. However, as Haacked.com
+As in life, there are no perfect guarantees. However, as Codesennin.com
 doesn't require registration, it really doesn't have much information to
 share in the first place.
 

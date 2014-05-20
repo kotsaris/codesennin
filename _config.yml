@@ -1,28 +1,28 @@
 #
 # Blog Settings
 #
-author: Phil Haack
-description: You've been Haacked and you like it
-url: http://haacked.com
-title: You've Been Haacked
-subtitle: ...and you like it
-gravatar_url: https://2.gravatar.com/avatar/cdf546b601bf29a7eb4ca777544d11cd
-subscribe_rss: http://feeds.haacked.com/haacked
+author: Kostas Konstantinidis
+description: Codesennin's blog
+url: http://codesennin.com
+title: Kostas'
+subtitle: Day to day thoughts
+gravatar_url: https://en.gravatar.com/userimage/5352439/89a8e18113f0f1c7ddff09b40882763c.png
+subscribe_rss: http://feeds.codesennin.com/codesennin
 
 # Github repositories
-github_user: haacked
-github_repo_url: https://github.com/Haacked/haacked.com/
+github_user: kotsaris
+github_repo_url: https://github.com/kotsaris/codesennin
 
 # Twitter
-twitter_user: haacked
+twitter_user: codesennin
 twitter_tweet_button: true
 
 # Disqus Comments
-disqus_short_name: haacked
+disqus_short_name: codesennin
 disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id: UA-177588-1
+google_analytics_tracking_id: UA-8762827-1
 
 
 #

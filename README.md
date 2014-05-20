@@ -1,11 +1,10 @@
 # Haacked.com
 
-This is my blog. There are many like it, but this one is mine.
+This is my blog. Shamelessly cloned from github.com\haacked\haacked.com
 
 ## Run it locally
 
 The following command builds the site and runs it on http://localhost:4000/
-It takes a while because I have a lot of posts.
 
 ```shell
 jekyll serve
