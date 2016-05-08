@@ -3,7 +3,7 @@ layout: post
 title: "Learn to unlearn"
 date: 2015-11-29 -1932
 comments: true
-categories: [human], [philosophy]
+categories: [human, philosophy]
 ---
 
 As we grow up, we gain a lot of skills and habits which are beneficial to ourselves and others around us. From social skills, to technical ones and beyond. Unfortunately, we pick up and/or inherit some bad ones as well, that's life after all. We'll call those 'baggage' and personally I categorize them in two categories; evolutionary, and life baggage.
