@@ -1,9 +1,7 @@
-require "html/proofer"
-
-`chcp 65001`
+require 'html-proofer'
 
 task :test do
   sh "bundle exec jekyll build --trace"
   # ignore href="#" for the "Copy to clipboard" button
-  HTML::Proofer.new("./_site", :href_ignore => ["#"]).run
+  HTMLProofer.check_directory('./_site').run
 end
