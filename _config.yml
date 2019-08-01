@@ -11,14 +11,17 @@ subscribe_rss: http://feeds.feedburner.com/CodeSennin
 
 # Github repositories
 github_user: kotsaris
-github_repo_url: https://github.com/kotsaris/codesennin
+github_repo_url: https://github.com/kotsaris/codesennin/
 
 # Twitter
 twitter_user: codesennin
 twitter_tweet_button: true
 
+#LinkedIn
+linkedin_url: https://www.linkedin.com/in/kostaskonstantinidis/
+
 # Disqus Comments
-disqus_short_name: codesennin
+disqus_short_name: 
 disqus_show_comment_count: true
 
 # Google Analytics
