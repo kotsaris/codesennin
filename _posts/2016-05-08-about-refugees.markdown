@@ -14,8 +14,8 @@ Stories of people loosing their close ones during the relocations. People findin
 
 When they decided to return to Greece, 16 years later, they were treated as unwanted immigrants. Pontians are Greeks for your information. Greece has changed considerably ever since. I like to think that it's the memories and stories of the hardship that they've been through that makes them so empathetic towards the Syrian refugees. 
 
-I am incredibly proud of the active Greeks that aid the refugees.
+I am incredibly proud for the Greek activists that aid the refugees.
 
-We are on the third referendum. My people are on the worst possible state I ever remember them on. Some of them fight tooth and nail to remain in Greece and despite their terrible financial state there is one rare commodity which they demonstrate time and time again.
+We are on the third memorandum. My people are on the worst possible state I ever remember them on. Some of them fight tooth and nail to remain in Greece and despite their terrible financial state there is one rare commodity which they demonstrate time and time again.
 
 Compassion.
