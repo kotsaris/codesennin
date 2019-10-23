@@ -257,7 +257,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  github-pages
+  github-pages (>= 201)
   html-proofer
   jekyll
   jekyll-paginate

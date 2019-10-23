@@ -1,5 +1,5 @@
 source 'http://www.rubygems.org'
-gem 'github-pages'
+gem 'github-pages', ">=201"
 gem 'rdiscount'
 gem 'wdm'
 gem 'jekyll'
