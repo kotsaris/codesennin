@@ -16,7 +16,6 @@ RUN apt update \
   && gem install bundler
 
 COPY Gemfile .
-COPY Gemfile.lock .
 
 RUN bundle install 
 
