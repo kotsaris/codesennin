@@ -16,7 +16,8 @@ RUN apt update \
   && gem install bundler
 
 COPY Gemfile .
+COPY Gemfile.lock .
 
 RUN bundle install 
 
-ENTRYPOINT [ "jekyll", "serve", "-H", "0.0.0.0" ]
+ENTRYPOINT [ "jekyll", "serve", "-H", "0.0.0.0", "--watch" ]
