@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[codesennin]]></title>
+  <link href="http://codesennin.com/atom.xml" rel="self"/>
+  <link href="http://codesennin.com/"/>
+  <updated>2021-02-22T23:35:16+00:00</updated>
+  <id>http://codesennin.com/</id>
+  <author>
+    <name><![CDATA[Kostas Konstantinidis]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  
+  <entry>
+    <title type="html"><![CDATA[Moving to GitHub Actions and Jekyll 4.2.0]]></title>
+    <link href="http://codesennin.com/archive/2021/02/22/moving-to-github-actions-and-jekyll-4.2.0/"/>
+    <updated>2021-02-22T00:00:00+00:00</updated>
+    <id>http://codesennin.com/archive/2021/02/22/moving-to-github-actions-and-jekyll-4.2.0</id>
+    <content type="html"><![CDATA[<h1 id="why-the-switch">Why the switch?</h1>
+<p>This blog uses Jekyll, a static website generator framework, to generate the necessary files which are hosted in <a href="https://pages.github.com/">GitHub Pages</a>. This post explains the reasons that made me switch from Github pages’ default building mechanism to Github Actions.</p>
+
+<p>While I was trying to resolve a few dependabot security issues which were about a few gems that I was using, I decided to move this blog to the latest jekyll version which is 4.2.0 at the time of this post. 
+Github, for security reasons, doesn’t allow you to move to any jekyll version and will only allow you to use whitelisted ruby gems/plugins.</p>
+
+<p>I am not upgrading the blog site very often, you can probably tell as I am not blogging quite often either. Hence, I wanted to upgrade to the latest and forget about it for a while. Thankfully, the process of achieving this is documented quite well on <a href="https://jekyllrb.com/docs/continuous-integration/github-actions/">Jekyll’s website</a>.</p>
+
+<p>The switch and upgrade was quite straightforward. It also works with the latest/stable Ruby (3.0) which is quite cool as I always had some issues with gem incompatibilities. Github needs a yaml file in a specific directory in order to setup your action. Other than that, a GitHub token is needed to be registered in your repository settings. This gives it permissions for public repositories that you own(specifically to update the gh-pages branch).</p>
+
+<p>It’s a great time to be a developer when your CI/CD pipeline for a blog looks as simple as that:</p>
+
+<pre><code class="language-yml:">name: Build and deploy Jekyll site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  github-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: helaili/jekyll-action@2.0.5
+        env:
+          JEKYLL_PAT: $
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  
+  
+  <entry>
+    <title type="html"><![CDATA[Meditation]]></title>
+    <link href="http://codesennin.com/archive/2019/10/21/meditation/"/>
+    <updated>2019-10-21T00:00:00+00:00</updated>
+    <id>http://codesennin.com/archive/2019/10/21/meditation</id>
+    <content type="html"><![CDATA[<h1 id="my-experience">My experience</h1>
+
+<p>Two years ago, I decided to try meditation as a way to reduce my anxiety. Eventhough I tried to look into it by myself, the <a href="https://headspace.com">Headspace</a> application helped me ease into it much better. I realized after following Andy’s(The founder) guidance that Mindfulness and meditation has many more benefits rather than just anxiety-reducing ones.</p>
+
+<p>About 2 months in, with daily 10 minute sessions I saw my first results. A noticeable reduction in anxiety. A year later, a much bigger improvement. Nowadays, I am basically a different person than the one from mid-2017. Stress and anxiety is managed better. Anger is noticed way in advance and I decide whether or not to vent/release it. My focus and my ability to “get in the zone” has also become better.</p>
+
+<p>There are a number of ways to perceive Meditation as. Personally, I see it as my mind’s workout and hygiene sessions. If my fitness needs time to keep up then why not my mind?</p>
+
+<p><img src="/images/posts/headspace-streak.jpg" alt="&quot;My initial aim was to meditate daily for a year non-stop&quot;    " title="I am a sucker for achievements" /></p>
+
+<p>If you haven’t heard of meditation before, don’t be intimidated by it. You just sit still for at least 10 minutes and be mindful of certain things such as your breath(in a nutshell). Andy will give you advice in the form of “homework” that you need to follow on each day depending on the pack that you are completing. Each pack deals with a different area eg anxiety, stress, grief, focus etc. You need to meditate at least 3 times per week to get the benefits though.</p>
+
+<p>If you happen to try it let me know of your experience with it. Finally, if you have any questions just message me and I am happy to help.</p>
+
+]]></content>
+  </entry>
+  
+  
+  
+  <entry>
+    <title type="html"><![CDATA[About refugees]]></title>
+    <link href="http://codesennin.com/archive/2016/05/06/about-refugees/"/>
+    <updated>2016-05-06T16:08:00+00:00</updated>
+    <id>http://codesennin.com/archive/2016/05/06/about-refugees</id>
+    <content type="html"><![CDATA[<p>The Syrian refugees wave that has been crashing over Greece for the past few years is something that moves me. I grew up with the stories of my Grandparents, <a href="https://en.wikipedia.org/wiki/Pontic_Greeks">Pontians</a> who were living on the shores of the black sea when Stalin exiled them with a bunch of kids under their armpits to live in the deserts of Kazakhstan.</p>
+
+<p>Always wondered, how that must feel like. To be uprooted, stripped from your property and relocated despite your will; with kids.</p>
+
+<p>Stories of people loosing their close ones during the relocations. People finding each other decades later in some reality shows up to this day.</p>
+
+<p>When they decided to return to Greece, 16 years later, they were treated as unwanted immigrants. Pontians are Greeks for your information. Greece has changed considerably ever since. I like to think that it’s the memories and stories of the hardship that they’ve been through that makes them so empathetic towards the Syrian refugees.</p>
+
+<p>I am incredibly proud for the Greek activists that aid the refugees.</p>
+
+<p>We are on the third memorandum. My people are on the worst possible state I ever remember them on. Some of them fight tooth and nail to remain in Greece and despite their terrible financial state there is one rare commodity which they demonstrate time and time again.</p>
+
+<p>Compassion.</p>
+]]></content>
+  </entry>
+  
+  
+  
+  <entry>
+    <title type="html"><![CDATA[Learn to unlearn]]></title>
+    <link href="http://codesennin.com/archive/2015/11/29/learn-to-unlearn/"/>
+    <updated>2015-11-29T00:00:00+00:00</updated>
+    <id>http://codesennin.com/archive/2015/11/29/learn to-unlearn</id>
+    <content type="html"><![CDATA[<p>As we grow up, we gain a lot of skills and habits which are beneficial to ourselves and others around us. From social skills, to technical ones and beyond. Unfortunately, we pick up and/or inherit some bad ones as well, that’s life after all. We’ll call those ‘baggage’ and personally I categorize them in two categories; evolutionary, and life baggage.</p>
+
+<p>Evolutionary would be a trait you simply inherited, something primal and useful under different contexts but most likely problematic nowadays.</p>
+
+<p>Life baggage on the other hand is little things you pick up as you grow up. Perhaps an addiction, or a propensity for being most of the time a couch potato. Arguably, some of life’s bad traits may have evolutionary root.</p>
+
+<p><img src="/images/posts/selfish.png" alt="But I only wanted positive traits. Why do I have to deal with the negative ones as well? :(" title="Darkest Dungeon" /></p>
+
+<p><a href="http://store.steampowered.com/app/262060/">Darkest Dungeon</a> makes a very accurate, in my opinion, representation of life’s character progression. In order to survive(and thrive) we picked up different traits along the way and even though each one of us is taking steps in order to gain more positive ones, not everyone is tackling their negative ones.</p>
+
+<p>Identifying those bad traits is some times hard; we are all very content as we are. Sometimes though, those behaviors can be problematic for our professional and/or personal careers. A healthy amount of introspection is due in this case.</p>
+
+<p>Character development is not only about addition, but about subtraction as well.</p>
+]]></content>
+  </entry>
+  
+  
+  
+  <entry>
+    <title type="html"><![CDATA[Fear as a compass]]></title>
+    <link href="http://codesennin.com/archive/2014/06/01/fear-as-a-compass/"/>
+    <updated>2014-06-01T00:00:00+00:00</updated>
+    <id>http://codesennin.com/archive/2014/06/01/fear-as-a-compass</id>
+    <content type="html"><![CDATA[<p>A couple of weeks ago I came across an old <a href="http://blog.codinghorror.com/choosing-your-own-adventure/">CodingHorror post</a> and a certain sentence became a sort of revelation for me.</p>
+
+<blockquote>
+  <p>“I won’t lie to you. It’s scary to trade the security of a safe, salaried job for the unknowns of your own small business. But the way I look at it, if it’s not a little scary, then it’s not the right choice. Failure is always an option.”</p>
+</blockquote>
+
+<p>Jeff describes how different choices in life usually lead us down to different paths and outcomes - a well known fact, right? While he expands on his thoughts on the subject though, he comes across one evolutionary guardian emotion of ours; fear.</p>
+
+<p>Everone feels or felt fear at some point in their life.</p>
+
+<p><img src="/images/after_earth.jpg" alt="&quot;Fear is not real. The only place that fear can exist is in our thoughts of the future. It is a product of our imagination, causing us to fear things that do not at present and may not ever exist. That is near insanity. Do not misunderstand me danger is very real but fear is a choice.&quot;" title="After Earth" /></p>
+
+<p>It’s a trait that we must have spend millions of lifes to earn and it manifests in different forms. It comes in <a href="http://en.wikipedia.org/wiki/Fear">various shapes and intensities</a> but this blog post - I guess - focuses on the fear of the unknown, uncertainty, unpredicability and survival.</p>
+
+<h2 id="analyzing-fear">Analyzing fear</h2>
+
+<p>Fear is a compass. It can point you in the right, or wrong direction so all you have to do is be able to interpret the readings and choose a course of action.</p>
+
+<p>In modern society, fear is rarely helpful, unless you are living in the middle of the jungle or you wonder through the night in bad neighborhoods. In some cases, fear is an indication of a “gambling attempt”. There is something to gain and - occasionally - something to lose. It may also mean that you lack information, preparation or control for what you are about to do. So for me, fear is an interesting tool; it tells me where improvements may be made by certain choices and where gaps that require more thinking lie.</p>
+
+<p>Fear is one of the most common emotions and yet you rarely hear people talk about it. I think that society raises us to think that expressing or communicating fear is a sign of weakness; it’s almost a taboo. I find the fact that noone gives you guidance on how to deal with these emotions even more perplexing so in the next blog post I’ll share some information on how I learned to deal with it.</p>
+]]></content>
+  </entry>
+  
+  
+</feed>

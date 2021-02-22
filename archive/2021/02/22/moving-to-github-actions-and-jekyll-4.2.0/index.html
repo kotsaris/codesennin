@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Moving to GitHub Actions and Jekyll 4.2.0 - codesennin</title>
+	<meta name="author" content="Kostas Konstantinidis">
+
+	
+	<meta name="description" content="
+		Codesennin's blog
+	">
+	
+
+	<!-- http://t.co/dKP3o1e -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="http://feeds.feedburner.com/CodeSennin" rel="alternate" title="codesennin" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://codesennin.com/archive/2021/02/22/moving-to-github-actions-and-jekyll-4.2.0/">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,700,800' rel='stylesheet' type='text/css'>
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="/css/code.css" type="text/css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="/js/slash.js" async></script>
+	
+  	
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-8762827-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+				<header id="header" class="inner"><div class="profilepic">
+	
+	<img src="https://en.gravatar.com/userimage/5352439/bf4744bac05286db1ee54b20953d147d.png?size=200?s=160" alt="Profile Picture" style="width: 160px;" />
+	
+</div>
+<hgroup>
+  <h1><a href="/">codesennin</a></h1>
+  
+    <h2>Just a thoughts diary</h2>
+  
+</hgroup>
+<nav id="main-nav"><ul class="main-navigation">
+  <li><a href="/about/">about</a></li>
+  <li><a href="/archive">archives</a></li>
+  <li><a href="https://github.com/kotsaris/feedback/issues/new">contact</a></li>
+  <li><a href="/resume">resumé</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		
+			<a class="twitter" href="http://twitter.com/codesennin" title="Twitter">Twitter</a>
+		
+		
+			<a class="github" href="https://github.com/kotsaris" title="GitHub">GitHub</a>
+		
+		
+			<a class="rss" href="http://feeds.feedburner.com/CodeSennin" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>				
+			</div>
+		</div>
+		<div class="mid-col">
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">Moving to GitHub Actions and Jekyll 4.2.0</h1>
+	<div class="meta">
+	<span class="date">
+
+
+
+
+<time datetime="2021-02-22T00:00:00+00:00"  itemprop="datePublished">February 22, 2021</time></span>
+	<span class="tags">tech</span>
+	
+	<span class="edit">
+
+<a href="https://github.com/kotsaris/codesennin/edit/gh-pages/_posts/2021-02-22-moving-to-github-actions-and-jekyll-4.2.0.markdown">edit</a>
+</span>
+</div>
+	<div class="entry-content" itemprop="articleBody"><h1 id="why-the-switch">Why the switch?</h1>
+<p>This blog uses Jekyll, a static website generator framework, to generate the necessary files which are hosted in <a href="https://pages.github.com/">GitHub Pages</a>. This post explains the reasons that made me switch from Github pages’ default building mechanism to Github Actions.</p>
+
+<p>While I was trying to resolve a few dependabot security issues which were about a few gems that I was using, I decided to move this blog to the latest jekyll version which is 4.2.0 at the time of this post. 
+Github, for security reasons, doesn’t allow you to move to any jekyll version and will only allow you to use whitelisted ruby gems/plugins.</p>
+
+<p>I am not upgrading the blog site very often, you can probably tell as I am not blogging quite often either. Hence, I wanted to upgrade to the latest and forget about it for a while. Thankfully, the process of achieving this is documented quite well on <a href="https://jekyllrb.com/docs/continuous-integration/github-actions/">Jekyll’s website</a>.</p>
+
+<p>The switch and upgrade was quite straightforward. It also works with the latest/stable Ruby (3.0) which is quite cool as I always had some issues with gem incompatibilities. Github needs a yaml file in a specific directory in order to setup your action. Other than that, a GitHub token is needed to be registered in your repository settings. This gives it permissions for public repositories that you own(specifically to update the gh-pages branch).</p>
+
+<p>It’s a great time to be a developer when your CI/CD pipeline for a blog looks as simple as that:</p>
+
+<pre><code class="language-yml:">name: Build and deploy Jekyll site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  github-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: helaili/jekyll-action@2.0.5
+        env:
+          JEKYLL_PAT: $
+</code></pre>
+
+</div>
+
+</article>
+
+<!--<div data-type="ad" data-publisher="lqm.youvebeenhacked.site" data-zone="ron" data-format="728x90"></div>-->
+
+
+<!-- <div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_tweet"></a>
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+ -->
+
+
+<div id="page-navigation">
+        <div class="previous">
+                
+                <a href="/archive/2019/10/21/meditation/" title="Previous Post: 
+Meditation">&laquo; Meditation</a>
+                
+        </div>
+
+        <div class="next">
+                
+        </div>
+</div>
+
+</div>
+			</div>
+			<footer id="footer" class="inner"><p>
+  Copyright &copy; 2021 - Kostas Konstantinidis Blog content licensed under the Creative Commons <a href="http://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a> | Site design based on the <a href="https://github.com/shashankmehta/greyshade">Greyshade theme</a> under the <a href="http://sm.mit-license.org/">MIT license</a> | Blog structure and widgets based on <a href="https://github.com/Haacked/haacked.com">haacked.com</a>
+</p>
+
+  
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</footer>
+		</div>
+	</div>
+
+
+<!--  CodeProject AD  -->
+<script>
+    function _dmBootstrap(file) {
+        var _dma = document.createElement('script'); 
+        _dma.type = 'text/javascript';
+        _dma.async = true; 
+        _dma.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + file;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(_dma);
+    }
+    function _dmFollowup(file) { if (typeof DMAds === 'undefined')  _dmBootstrap('cdn2.DeveloperMedia.com/a.min.js');}
+    (function () { _dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000);})();
+</script>
+</body>
+</html>
