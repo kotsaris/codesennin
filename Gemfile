@@ -1,10 +1,10 @@
 source 'http://www.rubygems.org'
-gem "nokogiri", ">= 1.10.4"
-gem 'github-pages'
-gem 'rdiscount'
 gem 'wdm'
-gem 'jekyll'
+gem 'jekyll', ">= 4.2.0"
 gem 'jekyll-paginate'
+gem 'jekyll-redirect-from'
+gem 'jekyll-sitemap'
+gem 'webrick'
 
 group :test do
   gem "html-proofer"
