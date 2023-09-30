@@ -6,7 +6,7 @@ comments: true
 categories: [human]
 ---
 
-A couple of weeks ago I came across an old [CodingHorror post](http://blog.codinghorror.com/choosing-your-own-adventure/) and a certain sentence became a sort of revelation for me. 
+A couple of weeks ago I came across an old [CodingHorror post](https://blog.codinghorror.com/choosing-your-own-adventure/) and a certain sentence became a sort of revelation for me.
 
 > "I won't lie to you. It's scary to trade the security of a safe, salaried job for the unknowns of your own small business. But the way I look at it, if it's not a little scary, then it's not the right choice. Failure is always an option."
 
@@ -16,7 +16,7 @@ Everone feels or felt fear at some point in their life.
 
 !["Fear is not real. The only place that fear can exist is in our thoughts of the future. It is a product of our imagination, causing us to fear things that do not at present and may not ever exist. That is near insanity. Do not misunderstand me danger is very real but fear is a choice."](/images/after_earth.jpg "After Earth")
 
-It's a trait that we must have spend millions of lifes to earn and it manifests in different forms. It comes in [various shapes and intensities](http://en.wikipedia.org/wiki/Fear) but this blog post - I guess - focuses on the fear of the unknown, uncertainty, unpredicability and survival.
+It's a trait that we must have spend millions of lifes to earn and it manifests in different forms. It comes in [various shapes and intensities](https://en.wikipedia.org/wiki/Fear) but this blog post - I guess - focuses on the fear of the unknown, uncertainty, unpredicability and survival.
 
 ## Analyzing fear
 

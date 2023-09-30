@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: 
+Disallow:
 
-Sitemap: http://codesennin.com/sitemap.xml 
+Sitemap: https://codesennin.com/sitemap.xml

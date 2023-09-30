@@ -10,7 +10,7 @@ categories: [tech, startup]
 This is a series of articles that document my experience returning to Greece to work remotely for Ardanis.com via a brand new company that I plan to create in Greece. I hope that it will help others that may be in similar situations find clues and a path to do the same. If you got specific questions or feedback do not hesitate to [ping me on twitter](https://twitter.com/codesennin).
 
 ## Returning to Greece
-As you may know, I am Greek and I moved to Ireland about 11 years ago. Due to my circumstances and the flexibility of my profession, I decided to move back to Greece and work remotely in late 2022. I cofounded [Ardanis.com](https://www.ardanis.com) in 2016 and turned my passion for software craftmanship into a successful software consultancy. If you are looking to get something built at a level that is only found in high-end companies then [give us a shout](https://ardanis.com/about-us/#contact)! 
+As you may know, I am Greek and I moved to Ireland about 11 years ago. Due to my circumstances and the flexibility of my profession, I decided to move back to Greece and work remotely in late 2022. I cofounded [Ardanis.com](https://www.ardanis.com) in 2016 and turned my passion for software craftmanship into a successful software consultancy. If you are looking to get something built at a level that is only found in high-end companies then [give us a shout](https://ardanis.com/about-us/#contact)!
 
 Up until the end of 2022, I have been a permanent employee of Ardanis since I lived in Ireland but since we lack an entity in Greece, I will have to continue providing my services to the company via a Greek entity that I plan to create. The plan is to create this company in Greece and provide services exclusively to Ardanis. I plan to recruit in 2023 so if you are interested then make sure to follow me on Twitter where I'll be posting these jobs.
 
@@ -21,10 +21,10 @@ A big incentive for expats such as myself was the scheme that offers 50% tax red
 There are two possibilities for what I am looking to do basically. IKE type or Atomiki. There are quite a few factors to consider when looking at both of these options but to make it simple for you then remember this: If you are eligible for "ΑΡΘΡΟ 5Γ" tax relief then Atomiki wins out by a great margin. Otherwise, if you are not eligible, go for IKE.
 
 ## A good accountant
-I cannot stress enough how important it is to find a good accountant. In the landscape of the Greek tax system which is still a labyrinth to navigate, a good accountant will make all the difference in the world. If you have people already in Greece ask around for references. Check a few and go with the one you feel has the best skill, even if you have to pay a bit more you risk less creating a "black hole" and gain more by maximizing what you can "expense" since they will guide you. 
+I cannot stress enough how important it is to find a good accountant. In the landscape of the Greek tax system which is still a labyrinth to navigate, a good accountant will make all the difference in the world. If you have people already in Greece ask around for references. Check a few and go with the one you feel has the best skill, even if you have to pay a bit more you risk less creating a "black hole" and gain more by maximizing what you can "expense" since they will guide you.
 
 ## Overview of the setup
-* Work from home initially 
+* Work from home initially
 * Have my rented house registered as the base of the company
 
 ## Prerequisites
@@ -35,7 +35,7 @@ I cannot stress enough how important it is to find a good accountant. In the lan
 Having spoken with my accountant before this date, the plan was to create the company immediately in 2023. Here's what we achieved in a week.
 
 ## Transferring tax residence to Greece
-To start the company creation I needed first to go to DOY and transfer my tax residence to Greece. You need to book an appointment with the Foreign DOY department via Taxis and go there with the rental agreement to get this sorted. 
+To start the company creation I needed first to go to DOY and transfer my tax residence to Greece. You need to book an appointment with the Foreign DOY department via Taxis and go there with the rental agreement to get this sorted.
 Once you are there, they will check if you have any outstanding tax obligations and if not, you will be requested to fill out two forms: M1 and M7(in the case where you had a tax representative before).
 
 ## Company creation
@@ -52,7 +52,7 @@ EFKA is your public health/pension insurance and contributions. The accountant t
 * Rental agreement from taxis
 * Landlord statement(See above)
 
-He also booked the appointment with the Μητρώο so I can simply go in. Turns out that as soon as I went there, EFKA had everything ready for me and they simply handed me two printed pages that were the evidence that I was now enrolled in that scheme. 
+He also booked the appointment with the Μητρώο so I can simply go in. Turns out that as soon as I went there, EFKA had everything ready for me and they simply handed me two printed pages that were the evidence that I was now enrolled in that scheme.
 
 If you are enrolled in EFKA after you pay them two months' worth of contributions you are then eligible to get a Βιβλιάριο which is your full access to the public health system and medication coverage.
 
@@ -67,6 +67,6 @@ That's not bad for a week's worth of effort. That said, compared to the Irish sy
 * Generating my first invoice via GOV.gr
 
 ## Closing words
-If you find the above interesting consider subscribing to the [RSS feed](http://feeds.feedburner.com/CodeSennin) and following me on [Twitter](https://twitter.com/codesennin) where I post regularly about my experience moving and working remotely from Greece.
+If you find the above interesting consider subscribing to the [RSS feed](https://feeds.feedburner.com/CodeSennin) and following me on [Twitter](https://twitter.com/codesennin) where I post regularly about my experience moving and working remotely from Greece.
 
 See you next week!

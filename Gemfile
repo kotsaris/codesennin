@@ -1,16 +1,17 @@
-source 'http://www.rubygems.org'
+source 'https://www.rubygems.org'
 ruby '2.7.4'
 
 gem 'wdm'
-gem 'jekyll', ">= 4.2.0"
+gem 'jekyll', "3.9.3"
 gem 'jekyll-paginate'
 gem 'jekyll-redirect-from'
 gem 'jekyll-sitemap'
 gem 'webrick'
-gem "jekyll-sass-converter", "~> 2.0"
+gem "jekyll-sass-converter"
 gem 'liquid', ">= 4.0.4"
+gem 'kramdown-parser-gfm', '~> 1.1.0'
 
 group :test do
-  gem "html-proofer"
+  gem "html-proofer", ">= 4.4.3"
   gem "rake"
 end

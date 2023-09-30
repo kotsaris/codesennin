@@ -67,6 +67,6 @@ That's not bad for a week's worth of effort. That said, compared to the Irish sy
 * Generating my first invoice via GOV.gr
 
 ## Closing words
-If you find the above interesting consider subscribing to the [RSS feed](http://feeds.feedburner.com/CodeSennin) and following me on [Twitter](https://x.com/codesennin) where I post regularly about my experience moving and working remotely from Greece.
+If you find the above interesting consider subscribing to the [RSS feed](https://feeds.feedburner.com/CodeSennin) and following me on [Twitter](https://x.com/codesennin) where I post regularly about my experience moving and working remotely from Greece.
 
 See you next week!
