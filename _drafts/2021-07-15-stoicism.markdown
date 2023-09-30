@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Stoicism - Use the soft times to toughen up"
+date: 2021-02-22
+comments: true
+categories: [philosophy]
+---
+

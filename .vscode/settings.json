@@ -1,0 +1,19 @@
+{
+    "grammarly.selectors": [
+        {
+            "language": "markdown",
+            "scheme": "file",
+            "pattern": "_posts/2023-04-01-returning-to-greece-the-start"
+        },
+        {
+            "language": "markdown",
+            "scheme": "file",
+            "pattern": "_posts/2023-01-04-returning-to-greece-the-start.markdown"
+        },
+        {
+            "language": "markdown",
+            "scheme": "file",
+            "pattern": "_posts/2023-01-24-opening-a-business-bank-account-in-greece.markdown"
+        }
+    ]
+}

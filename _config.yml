@@ -1,0 +1,41 @@
+#
+# Blog Settings
+#
+author: Kostas Konstantinidis
+description: Codesennin's blog
+url: https://codesennin.com
+title: codesennin
+subtitle: Just a thoughts diary
+gravatar_url: https://s.gravatar.com/avatar/abe006dc565c07bf484f7138a260c09c?s=200
+subscribe_rss: http://feeds.feedburner.com/CodeSennin
+
+# Github repositories
+github_user: kotsaris
+github_repo_url: https://github.com/kotsaris/codesennin/
+
+# Twitter
+twitter_user: codesennin
+twitter_tweet_button: true
+
+#LinkedIn
+linkedin_url: https://www.linkedin.com/in/kostaskonstantinidis/
+
+# Disqus Comments
+disqus_short_name:
+disqus_show_comment_count: true
+
+# Google Analytics
+google_analytics_tracking_id: UA-8762827-1
+
+#
+# Jekyll Settings
+#
+markdown: kramdown
+permalink: /archive/:year/:month/:day/:title/
+paginate: 2
+paginate_path: "page/:num"
+category_dir: categories
+plugins:
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-sitemap
