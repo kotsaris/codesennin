@@ -9,7 +9,7 @@ gem "jekyll-sass-converter"
 gem 'liquid', ">= 4.0.4"
 gem 'kramdown-parser-gfm', '~> 1.1.0'
 
-group :test do
-  gem "html-proofer", ">= 4.4.3"
-  gem "rake"
-end
+# group :test do
+#   gem "html-proofer", ">= 4.4.3"
+#   gem "rake"
+# end
