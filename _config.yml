@@ -21,7 +21,7 @@ twitter_tweet_button: true
 linkedin_url: https://www.linkedin.com/in/kostaskonstantinidis/
 
 # Disqus Comments
-disqus_short_name:
+disqus_short_name: codesennin
 disqus_show_comment_count: true
 
 # Google Analytics
