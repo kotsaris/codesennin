@@ -1,0 +1,135 @@
+#comments {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .image-container {
+    margin-right: 20px;
+  }
+
+  .image-container img {
+    max-width: 100px;
+    border-radius: 5px;
+  }
+
+  .input-container {
+    flex-grow: 1;
+  }
+
+  .input-container label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+  .input-container input[type="text"],
+  .input-container input[type="email"],
+  .input-container input[type="url"],
+  .input-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+
+  .input-container input[type="checkbox"] {
+    margin-right: 5px;
+  }
+
+  .submit-button {
+    width: 100%; /* Adjust the width to align with input fields */
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    padding: 15px 10px; /* Increase padding for better height */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+
+  .submit-button:hover {
+    background-color: #005bb5;
+  }
+
+  .submit-button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
+
+#comments {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comment-item {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.comment-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-author-info strong {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+.comment-date {
+  color: #777;
+  font-size: 0.9em;
+}
+
+.comment-body {
+  padding-left: 65px; /* Adjust to align with avatar size */
+}
+
+.comment-body p {
+  margin: 0;
+}
+
+.comment-separator {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 10px 0;
+}

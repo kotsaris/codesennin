@@ -4,6 +4,7 @@ title: "Fear as a compass"
 date: 2014-06-01 -0021
 comments: true
 categories: [human]
+slug: fear-as-a-compass
 ---
 
 A couple of weeks ago I came across an old [CodingHorror post](https://blog.codinghorror.com/choosing-your-own-adventure/) and a certain sentence became a sort of revelation for me.

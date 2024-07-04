@@ -1,0 +1,110 @@
+{% if page.comments == true %}
+<form id="comment-form" method="POST"
+  action="{{ site.staticman.api }}">
+  <!-- <input name="options[redirect]" type="hidden" value="{{ site.url }}/pages/thank-you"> -->
+  <input name="options[slug]" type="hidden" value="{{ page.slug }}">
+  <input name="fields[avatar_url]" type="hidden" id="avatar_url" value="https://robohash.org/default">
+  <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ site.staticman.recaptcha.sitekey }}">
+  <input type="hidden" name="options[reCaptcha][secret]" value="{{ site.staticman.recaptcha.secret }}">
+
+  <div class="form-container">
+    <div class="image-container">
+      <img id="robohash-image" src="https://robohash.org/default" alt="Robohash Image">
+    </div>
+    <div class="input-container">
+      <label for="name">Display Name</label>
+      <input name="fields[name]" type="text" id="name" required>
+
+      <label for="email">E-mail (Optional)</label>
+      <input name="fields[email]" type="email" id="email">
+
+      <label for="email">Your URL (Twitter, Github etc) (Optional)</label>
+      <input name="fields[url]" type="text" id="url">
+
+      <label for="message">Message</label>
+      <textarea name="fields[message]" rows="4" required value="test"></textarea>
+
+      <label><input id="remember_me" name="fields[remember_me]" type="checkbox"> Remember me</label>
+      <br/>
+      <div class="g-recaptcha" data-sitekey="{{ site.staticman.recaptcha.sitekey }}"></div>
+      <button type="submit" class="submit-button">Submit</button>
+    </div>
+  </div>
+</form>
+
+<script>
+$(document).ready(function () {
+
+  function saveToLocalStorage() {
+    if ($('#remember_me').is(':checked')) {
+      localStorage.setItem('name', $('#name').val());
+      localStorage.setItem('email', $('#email').val());
+      localStorage.setItem('url', $('#url').val());
+      localStorage.setItem('avatar_url', $('#avatar_url').val());
+    }
+  }
+
+  $('#name').on('blur', function () {
+      const email = $(this).val().trim();
+      if (email) {
+        const avatarUrl = `https://robohash.org/${email}`;
+        $('#avatar_url').val(avatarUrl);
+        $('#robohash-image').attr('src', avatarUrl);  // Optionally update the image preview
+      }
+    });
+
+  $('#comment-form').on('submit', function (event) {
+    event.preventDefault();
+    var $submitButton = $('.submit-button');
+    $submitButton.prop('disabled', true);
+    $submitButton.text('Submitting...');
+    saveToLocalStorage();
+
+    const form = this;
+    const formData = new FormData(form);
+    const url = form.action;
+    formData.delete('fields[remember_me]');
+
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+    const queryString = $.param(data);
+
+    $.ajax({
+      url: url,
+      type: 'POST',
+      data: queryString,
+      processData: false,
+      contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+      success: function (data) {
+        if (data.success) {
+          window.location.href = "/pages/thank-you";
+        } else {
+          console.error('Error submitting comment: ' + data.message);
+          window.location.href = "/pages/sorry";
+        }
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.error('Error:', errorThrown);
+        console.error('Status:', textStatus);
+        console.error('Response:', jqXHR.responseText);
+        window.location.href = "/pages/sorry";
+      }
+    });
+  });
+
+  loadFromLocalStorage();
+
+  function loadFromLocalStorage() {
+    if (localStorage.getItem('name')) {
+      $('#name').val(localStorage.getItem('name'));
+      $('#email').val(localStorage.getItem('email'));
+      $('#url').val(localStorage.getItem('url'));
+      $('#avatar_url').val(localStorage.getItem('avatar_url'));
+      $('#robohash-image').attr('src', localStorage.getItem('avatar_url'));
+    }
+  }
+});
+</script>
+{% endif %}

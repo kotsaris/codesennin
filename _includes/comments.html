@@ -1,0 +1,29 @@
+<div id="comments">
+  <a href="{{ page.url }}#comments"></a>
+  <h2>Comments</h2>
+  {% include comment_form.html %}
+
+  <hr class="comment-separator">
+
+  {% assign slug = page.slug | replace: '.', '' %}
+  {% assign comments = site.data.comments %}
+  {% assign entries = comments[slug] %}
+  {% if entries %}
+  <ul class="comment-list">
+    {% for entry in entries %}
+    {% assign comment = entry[1] %}
+    <li class="comment-item">
+      <div class="comment-header">
+        <img class="comment-avatar" src="{{ comment.avatar_url }}" alt="{{ comment.name }}" />
+        <div class="comment-author-info">
+          <strong>{{ comment.name }}</strong> <span class="comment-date">{{ comment.date | date: "%B %d, %Y" }}</span>
+        </div>
+      </div>
+      <div class="comment-body">
+        <p>{{ comment.message }}</p>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>

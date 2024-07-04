@@ -12,3 +12,7 @@ end
 task :host do
   sh "bundle exec rake test && jekyll serve --livereload --force-polling "
 end
+
+task :serve do
+  sh "jekyll serve --livereload --force-polling "
+end
