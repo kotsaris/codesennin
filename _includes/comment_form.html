@@ -27,6 +27,8 @@
       <label><input id="remember_me" name="fields[remember_me]" type="checkbox"> Remember me</label>
       <br/>
       <div class="g-recaptcha" data-sitekey="{{ site.staticman.recaptcha.sitekey }}"></div>
+
+      <div class="warning-box" id="warning-box"></div>
       <button type="submit" class="submit-button">Submit</button>
     </div>
   </div>
@@ -55,6 +57,17 @@ $(document).ready(function () {
 
   $('#comment-form').on('submit', function (event) {
     event.preventDefault();
+    $captchaCompleted = grecaptcha.getResponse() !== '';
+    const warningBox = document.getElementById('warning-box');
+    if (!$captchaCompleted) {
+      warningBox.textContent = 'Please fill the required fields and complete the reCAPTCHA.';
+      warningBox.style.display = 'block'; // Show warning box
+      return;
+    }
+    else {
+      warningBox.style.display = 'none'; // Hide warning box
+    }
+
     var $submitButton = $('.submit-button');
     $submitButton.prop('disabled', true);
     $submitButton.text('Submitting...');
