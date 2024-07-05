@@ -1,5 +1,11 @@
 {% if post.comments == true %}
 <span class="comments">
-  <a href="{{ post.url }}#comments">Discuss</a>
+  {% assign slug = post.slug | replace: '.', '' %}
+  {% assign entries = site.data.comments[slug] %}
+  {% if entries %}
+    <a href="{{ post.url }}#comments">{{ entries.size }} comment{% if entries.size != 1 %}s{% endif %}</a>
+  {% else %}
+    <a href="{{ post.url }}#comments">Discuss</a>
+  {% endif %}
 </span>
 {% endif %}
