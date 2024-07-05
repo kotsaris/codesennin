@@ -14,13 +14,13 @@
     {% assign comment = entry[1] %}
     <li class="comment-item">
       <div class="comment-header">
-        <img class="comment-avatar" src="{{ comment.avatar_url }}" alt="{{ comment.name }}" />
+        <img class="comment-avatar" src="{{ comment.avatar_url | escape }}" alt="{{ comment.name | escape }}" />
         <div class="comment-author-info">
-          <strong>{{ comment.name }}</strong> <span class="comment-date">{{ comment.date | date: "%B %d, %Y" }}</span>
+          <strong>{{ comment.name | escape }}</strong> <span class="comment-date">{{ comment.date | date: "%B %d, %Y" | escape }}</span>
         </div>
       </div>
       <div class="comment-body">
-        <p>{{ comment.message }}</p>
+        <p>{{ comment.message | escape }}</p>
       </div>
     </li>
     {% endfor %}
