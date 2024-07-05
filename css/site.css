@@ -105,6 +105,13 @@
   margin-bottom: 15px;
 }
 
+.no-comments {
+  text-align: center;
+  font-size: 1.2em;
+  color: #555;
+  margin-top: 20px;
+}
+
 .comment-header {
   display: flex;
   align-items: center;

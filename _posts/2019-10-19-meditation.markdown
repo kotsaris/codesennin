@@ -2,18 +2,18 @@
 layout: post
 title: "Meditation"
 date: 2019-10-21
-comments: false
+comments: true
 categories: [self-improve,anxiety]
 ---
 
-# My experience 
+# My experience
 
-Two years ago, I decided to try meditation as a way to reduce my anxiety. Eventhough I tried to look into it by myself, the [Headspace](https://headspace.com) application helped me ease into it much better. I realized after following Andy's(The founder) guidance that Mindfulness and meditation has many more benefits rather than just anxiety-reducing ones. 
+Two years ago, I decided to try meditation as a way to reduce my anxiety. Eventhough I tried to look into it by myself, the [Headspace](https://headspace.com) application helped me ease into it much better. I realized after following Andy's(The founder) guidance that Mindfulness and meditation has many more benefits rather than just anxiety-reducing ones.
 
 
-About 2 months in, with daily 10 minute sessions I saw my first results. A noticeable reduction in anxiety. A year later, a much bigger improvement. Nowadays, I am basically a different person than the one from mid-2017. Stress and anxiety is managed better. Anger is noticed way in advance and I decide whether or not to vent/release it. My focus and my ability to "get in the zone" has also become better. 
+About 2 months in, with daily 10 minute sessions I saw my first results. A noticeable reduction in anxiety. A year later, a much bigger improvement. Nowadays, I am basically a different person than the one from mid-2017. Stress and anxiety is managed better. Anger is noticed way in advance and I decide whether or not to vent/release it. My focus and my ability to "get in the zone" has also become better.
 
-There are a number of ways to perceive Meditation as. Personally, I see it as my mind's workout and hygiene sessions. If my fitness needs time to keep up then why not my mind? 
+There are a number of ways to perceive Meditation as. Personally, I see it as my mind's workout and hygiene sessions. If my fitness needs time to keep up then why not my mind?
 
 !["My initial aim was to meditate daily for a year non-stop"    ](/images/posts/headspace-streak.jpg "I am a sucker for achievements")
 

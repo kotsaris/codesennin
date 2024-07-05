@@ -9,9 +9,16 @@
   {% assign comments = site.data.comments %}
   {% assign entries = comments[slug] %}
   {% if entries %}
-  <ul class="comment-list">
-    {% for entry in entries %}
+
+  {% assign my_array = "" | split: "" %}
+  {% for entry in entries %}
     {% assign comment = entry[1] %}
+    {% assign my_array = my_array | push: comment %}
+  {% endfor %}
+  {% assign entries = my_array | sort: 'date' %}
+
+  <ul class="comment-list">
+    {% for comment in entries %}
     <li class="comment-item">
       <div class="comment-header">
         <img class="comment-avatar" src="{{ comment.avatar_url | escape }}" alt="{{ comment.name | escape }}" />
@@ -25,5 +32,7 @@
     </li>
     {% endfor %}
   </ul>
+  {% else %}
+  <div class="no-comments">No comments yet.</div>
   {% endif %}
 </div>
