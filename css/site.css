@@ -1,80 +1,94 @@
-#comments {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-
-  .form-container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .image-container {
-    margin-right: 20px;
-  }
-
-  .image-container img {
-    max-width: 100px;
-    border-radius: 5px;
-  }
-
-  .input-container {
-    flex-grow: 1;
-  }
-
-  .input-container label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-  }
-
-  .input-container input[type="text"],
-  .input-container input[type="email"],
-  .input-container input[type="url"],
-  .input-container textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
-  }
-
-  .input-container input[type="checkbox"] {
-    margin-right: 5px;
-  }
-
-  .submit-button {
-    width: 100%; /* Adjust the width to align with input fields */
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    padding: 15px 10px; /* Increase padding for better height */
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
-  }
-
-  .submit-button:hover {
-    background-color: #005bb5;
-  }
-
-  .submit-button:disabled {
-    background-color: #cccccc;
-    color: #666666;
-    cursor: not-allowed;
-  }
-
+/* General Styles */
 #comments {
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 5px;
   margin-top: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap; /* Allow wrapping for small screens */
+}
+
+.image-container {
+  margin-right: 20px;
+}
+
+.image-container img {
+  max-width: 100px;
+  border-radius: 5px;
+}
+
+.input-container {
+  flex-grow: 1;
+  min-width: 0; /* Allow the container to shrink */
+}
+
+.input-container label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.input-container input[type="text"],
+.input-container input[type="email"],
+.input-container input[type="url"],
+.input-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.input-container input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.submit-button {
+  width: 100%; /* Adjust the width to align with input fields */
+  background-color: #0073e6;
+  color: white;
+  border: none;
+  padding: 15px 10px; /* Increase padding for better height */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.submit-button:hover {
+  background-color: #005bb5;
+}
+
+.submit-button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+.comment-separator {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 10px 0;
+}
+
+.warning-box {
+  display: none; /* Hidden by default */
+  background-color: #ffcccb; /* Light red background */
+  color: #a94442; /* Dark red text */
+  border: 1px solid #ebccd1; /* Red border */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 14px;
 }
 
 .comment-list {
@@ -127,20 +141,24 @@
   margin: 0;
 }
 
-.comment-separator {
-  border: none;
-  height: 1px;
-  background-color: #ddd;
-  margin: 10px 0;
-}
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .form-container {
+    flex-direction: column; /* Stack items vertically on small screens */
+  }
 
-.warning-box {
-  display: none; /* Hidden by default */
-  background-color: #ffcccb; /* Light red background */
-  color: #a94442; /* Dark red text */
-  border: 1px solid #ebccd1; /* Red border */
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  font-size: 14px;
+  .image-container {
+    margin-right: 0; /* Remove right margin */
+    margin-bottom: 10px; /* Add bottom margin for spacing */
+    text-align: center; /* Center the image */
+  }
+
+  .input-container {
+    width: 100%; /* Full width for input container */
+  }
+
+  .g-recaptcha {
+    transform: scale(0.85); /* Scale down CAPTCHA */
+    transform-origin: 0 0; /* Anchor scaling to top-left */
+  }
 }
