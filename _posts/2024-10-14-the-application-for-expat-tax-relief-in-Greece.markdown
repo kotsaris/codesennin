@@ -1,12 +1,17 @@
 ---
 layout: post
 title: "Applying for 5Γ - Greek Tax Relief for people who return and stay in Greece"
-date: 2023-12-05
+date: 2024-10-14
 comments: true
 categories: [tech, startup]
 ---
 
 ## Intro
+
+_(I intended to write this back in 2023 but it remained a draft for quite a while. I've decided to publish it now.)_
+
+![Πιέρια Όρη](/images/posts/driving-mountains.JPEG)
+
 This is another blog in the series about returning to Greece and setting up a company. In this part, I'll explore and document my experience as an expat returning to Greece after 10+ years and applying for [Αρθρο 5Γ](https://taxblock.gr/forologikos-odigos/diadikasia-kai-proypotheseis-ypagogis-stis-diataxeis-toy-arthrou-5g/) tax relief. If you don't know what this is, it's a 50% tax reduction for 7 years(as of this writing).
 
 ## Prerequisites
