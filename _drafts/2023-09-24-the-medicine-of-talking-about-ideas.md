@@ -6,8 +6,10 @@ comments: true
 categories: [tech, startup]
 ---
 
-#
-Let me talk to you about the importance of ideas.
+# One discussion about an idea a day, makes the psychologist go away.
+_I started writing this back in January 2023. For whatever reason, I didn't publish it back then._
+
+Let me talk to you about the importance of ideas, to me anyways.
 
 At a friend's house yesterday, a very educated person, chatting about ideas. It's deeply fulfilling to be in a place where people meet ad-hoc to have a coffee and speak about philosophy, technology, religion and other topics that personally find to be almost food for the soul.
 
@@ -25,5 +27,7 @@ The scene is about the mathematician, in a café in Paris, with other intellectu
 
 It wasn't that this mathematician didn't have intellectuals in New York to meet and chat, I think the point the series was making was that some countries have a bigger cultural element that leads to these meetings/rituals and a tendency to talk about ideas which you genuinely find interesting and act as a mental vitamin for your brain.
 
-Ever since I returned, I had many discussions like these. They can occur over pizza, coffee, a tavern feast or elsewhere. And I can tell that they contribute to my mental well being. There's probably some literature about this in terms of Psychology which I am not familiar with 😂
+Ever since I returned, I had many discussions like these. They can occur over pizza, coffee, a tavern feast or elsewhere. And I can tell that they contribute to my mental well being. There's probably some literature about this in terms of Psychology which I am not familiar with 😂.
 
+_More recent thoughts_
+Large language models, despite being very recent as a technology and a lot of times as dull as a block of wood, offer opportunities for ideas and exploration. I thought it would be good to mention this here as I have started using it increasingily to explore ideas and see if the AI helps me in any way learn something or just to explore. Advance Voice Mode from ChatGPT
