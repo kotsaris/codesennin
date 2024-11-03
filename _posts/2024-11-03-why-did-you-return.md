@@ -10,7 +10,7 @@ categories: [greece]
 In 2011, I left Greece for Ireland with my wife. We lived there for about twelve years, experiencing some of the best years of our lives.
 
 - I advanced my career from a mid-level backend developer to a solutions architect, a principal engineer, and eventually, a co-founder of a technology company.
-- I co-founded [Ardanis](https://www.ardanis.com), a digital software consultancy, and helped grow the company for over eight years.
+- I co-founded [Ardanis](https://www.ardanis.com){:target="_blank"}, a digital software consultancy, and helped grow the company for over eight years.
 - Both our daughters were born in Dublin.
 - We even bought a house near Dublin.
 
@@ -41,7 +41,7 @@ Six months later, after preparations and farewells, we were back in Greece.
 
 Now that I've been here for two years, let me share why I made this choice.
 
- ### I returned for
+### I returned for
 - My parents, to be there for them, and my kids' grandparents, while they are still around.
 - My sister and her family
 - My friends
@@ -56,7 +56,7 @@ Now that I've been here for two years, let me share why I made this choice.
 - The impromptu coffee/tavern outings where we get to discuss interesting topics.
 - Greek food, veggies, and delicious fruits.
 - The people I meet that invite me for coffee despite just meeting them.
-- [5Γ](https://www.codesennin.com/archive/2024/10/14/the-application-for-expat-tax-relief-in-Greece/)
+- [5Γ](https://www.codesennin.com/archive/2024/10/14/the-application-for-expat-tax-relief-in-Greece/){:target="_blank"}
 - The sea
 - The summers
 - The nature and Mount Olympus to which I have instant access.
