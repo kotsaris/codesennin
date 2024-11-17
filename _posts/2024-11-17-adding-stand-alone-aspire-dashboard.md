@@ -17,6 +17,7 @@ The project uses the following technologies.
 [Aspire](https://learn.microsoft.com/en-us/dotnet/aspire/get-started/aspire-overview) has made the development experience a joy. It enables me to add containerized dependencies locally and have them all come up with F5 so I can quickly work through features.
 
 This is the app with fake transactions.
+
 ![Budgeteer Sample](/images/posts/aspire-dashboard-standalone/image.png)
 
 I have the project deployed locally on a docker-compose setup. One of the things I miss though is the Aspire Dashboard. Through Open Telemetry, it gives loads of information on telemetry and logs and makes troubleshooting issues a breeze. When working through an IDE and by using an AppHost, the dashboard comes for free. In my setup though, I had to deploy it as stand alone and configure the open telemetry parts in order to get everything wired up.
