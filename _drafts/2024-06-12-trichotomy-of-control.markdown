@@ -1,14 +1,12 @@
 ---
 layout: post
 title: "Trichotomy of Control"
-date: 2024-06-12
+date: 2024-12-26
 comments: true
 categories: [philosophy]
 ---
 
 # Trichotomy of control.
-
-Or, why people think I don't care when I actually do.
 
 My job as a Software Engineer and Consultant is many times to join a project which is in a dire situation. A while back, I joined a project that couldn't find success two years into development, and I was tasked to turn it around.
 
