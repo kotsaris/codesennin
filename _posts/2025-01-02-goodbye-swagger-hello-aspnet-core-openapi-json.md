@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Good bye Swagger, hello .NET 9 OpenAPI json"
+title: "Goodbye Swagger, hello .NET 9 OpenAPI json"
 date: 2025-01-02 11:28
 comments: true
 categories: [coding]
