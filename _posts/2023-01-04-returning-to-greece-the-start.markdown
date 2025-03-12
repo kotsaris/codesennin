@@ -7,12 +7,12 @@ categories: [tech, startup]
 ---
 
 ## Intro
-This is a series of articles that document my experience returning to Greece to work remotely for Ardanis.com via a brand new company that I plan to create in Greece. I hope that it will help others that may be in similar situations find clues and a path to do the same. If you got specific questions or feedback do not hesitate to [ping me on twitter](https://x.com/codesennin).
+This is a series of articles that document my experience returning to Greece to work remotely for Ardanis.com via a brand new company that I plan to create in Greece. I hope that it will help others that may be in similar situations find clues and a path to do the same. If you got specific questions or feedback do not hesitate to [ping me on bluesky](https://bluesky.com/codesennin).
 
 ## Returning to Greece
 As you may know, I am Greek and I moved to Ireland about 11 years ago. Due to my circumstances and the flexibility of my profession, I decided to move back to Greece and work remotely in late 2022. I cofounded [Ardanis.com](https://www.ardanis.com) in 2016 and turned my passion for software craftmanship into a successful software consultancy. If you are looking to get something built at a level that is only found in high-end companies then [give us a shout](https://ardanis.com/about-us/#contact)!
 
-Up until the end of 2022, I have been a permanent employee of Ardanis since I lived in Ireland but since we lack an entity in Greece, I will have to continue providing my services to the company via a Greek entity that I plan to create. The plan is to create this company in Greece and provide services exclusively to Ardanis. I plan to recruit in 2023 so if you are interested then make sure to follow me on Twitter where I'll be posting these jobs.
+Up until the end of 2022, I have been a permanent employee of Ardanis since I lived in Ireland but since we lack an entity in Greece, I will have to continue providing my services to the company via a Greek entity that I plan to create. The plan is to create this company in Greece and provide services exclusively to Ardanis. ~~I plan to recruit in 2023 so if you are interested then make sure to follow me on Bluesky where I'll be posting these jobs.~~
 
 ## Incentives
 A big incentive for expats such as myself was the scheme that offers 50% tax reduction for 7 years to Greeks that have worked at least 5 years abroad. The tax legislation is called [ΑΡΘΡΟ 5Γ ΚΦΕ](https://www.taxheaven.gr/circulars/38210/e-2224-2021). After I left in 2011, I gathered all the necessary documentation in 2015 so I can move to the revenue department of foreign citizens. At this point, I hope that this in combination with the documentation I have exported from the Revenue.ie will allow me to apply and succeed in getting the tax discount for the next 7 years.

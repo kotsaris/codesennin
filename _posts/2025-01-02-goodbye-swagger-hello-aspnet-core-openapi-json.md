@@ -67,4 +67,4 @@ Simply install and go through the following steps:
 
 In the next post, I'll explore how JetBrains Rider's HTTP Client streamlines API testing, making the development process even smoother. We'll see how adding a few key files, natively supported by Rider, can enable you and your team to quickly test and interact with your endpoints.
 
-If this guide helped you, let me know in the comments or [follow me on X](https://x.com/codesennin) for more updates on API development.
+If this guide helped you, let me know in the comments or [follow me on Bluesky](https://bluesky.com/codesennin) for more updates on API development.

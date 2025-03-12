@@ -11,4 +11,4 @@ Hi, I am Konstantinos(aka Kostas) Konstantinidis and this is my blog.
 
 _This page needs to be updated_
 
-Find me on [LinkedIn](https://www.linkedin.com/in/kostaskonstantinidis/) or on [X](https://x.com/codesennin).
+Find me on [LinkedIn](https://www.linkedin.com/in/kostaskonstantinidis/) or on [Bluesky](https://bsky.app/profile/codesennin.com).
