@@ -120,3 +120,4 @@ The command will:
 - Draft posts are included in development builds via `--drafts` flag
 - HTML validation runs via html-proofer gem with custom ignore rules for specific URLs and status codes
 - Docker exposes ports 4000 (Jekyll) and 35729 (LiveReload)
+
