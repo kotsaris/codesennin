@@ -14,7 +14,9 @@ github_user: kotsaris
 github_repo_url: https://github.com/kotsaris/codesennin/
 
 staticman:
-  api: https://codesenninstatics.azurewebsites.net/v3/entry/github/kotsaris/codesennin/main/comments
+  #Find details at https://www.google.com/recaptcha/admin/site/705211883/settings
+  #api: http://192.168.3.2:54333/v3/entry/github/kotsaris/codesennin/main/comments
+  api: http://amoni.duckdns.org:54333/v3/entry/github/kotsaris/codesennin/main/comments
   recaptcha:
     sitekey: "6LfrrQgqAAAAAFHQl9e6CXaFOGd5ZplgoRLhjU4Y"
     secret: "E99OmL5xTZ7azxb9ZneLYI1Z4DAhITXa6jdAmnHIsc9YvUxFXr5OG0so5jClZOksl9VStwhUgfNXJSYCIH6+wD39u38Q7D2zaTlz1MWk1JkPasxBzjG6vZ/NOVB1v8ZAl5aSPOr8eUEYZoLsy+/9lOGFbLLFreN7bPRKo3Rl9/IY4xC4GeS/DVj2y9woQmS0eq7HHkFUBSdUbjta+FOhFGp84c/MK+oqgEmGYj7cXLoEUfjjG6V7Ahcw2xusXSfdmJ1JeIUQUYSrj1u1dBU6TQJyG/tT1cT0J6CWJzvY9FruKFXe25+X2Xc0zlI2JYlzevWCFJlthR5pEQFCUq3XZQ=="
