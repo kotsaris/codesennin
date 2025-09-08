@@ -1,7 +1,8 @@
 {% if page.comments == true %}
-<form id="comment-form" method="POST"
-  action="{{ site.staticman.api }}">
-  <!-- <input name="options[redirect]" type="hidden" value="{{ site.url }}/pages/thank-you"> -->
+<form id="comment-form" method="POST" action="{{ site.staticman.api }}">
+  <input type="hidden" name="options[redirect]" id="sm-redirect">
+  <input type="hidden" name="options[redirectError]" id="sm-redirect-error">
+
   <input name="options[slug]" type="hidden" value="{{ page.slug }}">
   <input name="fields[avatar_url]" type="hidden" id="avatar_url" value="https://robohash.org/default">
   <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ site.staticman.recaptcha.sitekey }}">
@@ -25,7 +26,7 @@
       <textarea name="fields[message]" rows="4" required value="test"></textarea>
 
       <label><input id="remember_me" name="fields[remember_me]" type="checkbox"> Remember me</label>
-      <br/>
+      <br />
       <div class="g-recaptcha" data-sitekey="{{ site.staticman.recaptcha.sitekey }}"></div>
 
       <div class="warning-box" id="warning-box"></div>
@@ -35,18 +36,18 @@
 </form>
 
 <script>
-$(document).ready(function () {
+  $(document).ready(function () {
 
-  function saveToLocalStorage() {
-    if ($('#remember_me').is(':checked')) {
-      localStorage.setItem('name', $('#name').val());
-      localStorage.setItem('email', $('#email').val());
-      localStorage.setItem('url', $('#url').val());
-      localStorage.setItem('avatar_url', $('#avatar_url').val());
+    function saveToLocalStorage() {
+      if ($('#remember_me').is(':checked')) {
+        localStorage.setItem('name', $('#name').val());
+        localStorage.setItem('email', $('#email').val());
+        localStorage.setItem('url', $('#url').val());
+        localStorage.setItem('avatar_url', $('#avatar_url').val());
+      }
     }
-  }
 
-  $('#name').on('blur', function () {
+    $('#name').on('blur', function () {
       const email = $(this).val().trim();
       if (email) {
         const avatarUrl = `https://robohash.org/${email}`;
@@ -55,69 +56,39 @@ $(document).ready(function () {
       }
     });
 
-  $('#comment-form').on('submit', function (event) {
-    event.preventDefault();
-    $captchaCompleted = grecaptcha.getResponse() !== '';
-    const warningBox = document.getElementById('warning-box');
-    if (!$captchaCompleted) {
-      warningBox.textContent = 'Please fill the required fields and complete the reCAPTCHA.';
-      warningBox.style.display = 'block'; // Show warning box
-      return;
-    }
-    else {
-      warningBox.style.display = 'none'; // Hide warning box
-    }
+    $('#comment-form').on('submit', function (event) {
+      const warningBox = document.getElementById('warning-box');
+      const captchaOk = (typeof grecaptcha !== 'undefined') && grecaptcha.getResponse() !== '';
 
-    var $submitButton = $('.submit-button');
-    $submitButton.prop('disabled', true);
-    $submitButton.text('Submitting...');
-    saveToLocalStorage();
-
-    const form = this;
-    const formData = new FormData(form);
-    const url = form.action;
-    formData.delete('fields[remember_me]');
-
-    const data = {};
-    formData.forEach((value, key) => {
-      data[key] = value;
-    });
-    const queryString = $.param(data);
-
-    $.ajax({
-      url: url,
-      type: 'POST',
-      data: queryString,
-      processData: false,
-      contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-      success: function (data) {
-        if (data.success) {
-          window.location.href = "/pages/thank-you";
-        } else {
-          console.error('Error submitting comment: ' + data.message);
-          window.location.href = "/pages/sorry";
-        }
-      },
-      error: function (jqXHR, textStatus, errorThrown) {
-        console.error('Error:', errorThrown);
-        console.error('Status:', textStatus);
-        console.error('Response:', jqXHR.responseText);
-        window.location.href = "/pages/sorry";
+      if (!captchaOk) {
+        event.preventDefault();
+        warningBox.textContent = 'Please complete the reCAPTCHA.';
+        warningBox.style.display = 'block';
+        return;
+      } else {
+        warningBox.style.display = 'none';
       }
+
+      // set redirects based on the page's actual origin (dev or prod)
+      document.getElementById('sm-redirect').value = window.location.origin + '/pages/thank-you';
+      document.getElementById('sm-redirect-error').value = window.location.origin + '/pages/sorry';
+
+      var $submitButton = $('.submit-button');
+      $submitButton.prop('disabled', true).text('Submitting...');
+      saveToLocalStorage();
     });
-  });
 
-  loadFromLocalStorage();
+    loadFromLocalStorage();
 
-  function loadFromLocalStorage() {
-    if (localStorage.getItem('name')) {
-      $('#name').val(localStorage.getItem('name'));
-      $('#email').val(localStorage.getItem('email'));
-      $('#url').val(localStorage.getItem('url'));
-      $('#avatar_url').val(localStorage.getItem('avatar_url'));
-      $('#robohash-image').attr('src', localStorage.getItem('avatar_url'));
+    function loadFromLocalStorage() {
+      if (localStorage.getItem('name')) {
+        $('#name').val(localStorage.getItem('name'));
+        $('#email').val(localStorage.getItem('email'));
+        $('#url').val(localStorage.getItem('url'));
+        $('#avatar_url').val(localStorage.getItem('avatar_url'));
+        $('#robohash-image').attr('src', localStorage.getItem('avatar_url'));
+      }
     }
-  }
-});
+  });
 </script>
 {% endif %}
