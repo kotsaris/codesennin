@@ -78,7 +78,7 @@ bundle exec rake host
 ### Content Management
 
 - Blog posts use front matter with date, title, categories, and other metadata
-- Comments system integrated via Staticman API
+- Comments system integrated via a custom functions app that I've wrote
 - Social sharing includes Bluesky integration (replaced Twitter)
 - Google Analytics tracking enabled
 - RSS feed available at /atom.xml
