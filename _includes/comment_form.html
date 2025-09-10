@@ -1,11 +1,9 @@
 {% if page.comments == true %}
-<form id="comment-form" method="POST"
-  action="{{ site.staticman.api }}">
-  <!-- <input name="options[redirect]" type="hidden" value="{{ site.url }}/pages/thank-you"> -->
-  <input name="options[slug]" type="hidden" value="{{ page.slug }}">
-  <input name="fields[avatar_url]" type="hidden" id="avatar_url" value="https://robohash.org/default">
-  <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ site.staticman.recaptcha.sitekey }}">
-  <input type="hidden" name="options[reCaptcha][secret]" value="{{ site.staticman.recaptcha.secret }}">
+<form id="comment-form" action="{{ site.staticman.api }}">
+  <!-- Backend expects a postId; using the page slug by default -->
+  <input type="hidden" id="postId" value="{{ page.slug }}">
+  <!-- Optional redirect you can override; backend also returns success/failure -->
+  <input type="hidden" id="redirect" value="/pages/thank-you">
 
   <div class="form-container">
     <div class="image-container">
@@ -13,19 +11,21 @@
     </div>
     <div class="input-container">
       <label for="name">Display Name</label>
-      <input name="fields[name]" type="text" id="name" required>
+      <input type="text" id="name" required>
 
       <label for="email">E-mail (Optional)</label>
-      <input name="fields[email]" type="email" id="email">
+      <input type="email" id="email">
 
-      <label for="email">Your URL (Social, Github etc) (Optional)</label>
-      <input name="fields[url]" type="text" id="url">
+      <label for="url">Your URL (Optional)</label>
+      <input type="text" id="url">
 
       <label for="message">Message</label>
-      <textarea name="fields[message]" rows="4" required value="test"></textarea>
+      <textarea id="message" rows="4" required></textarea>
 
-      <label><input id="remember_me" name="fields[remember_me]" type="checkbox"> Remember me</label>
+      <label><input id="remember_me" type="checkbox"> Remember me</label>
       <br/>
+
+      <!-- reCAPTCHA: keep only the site key on the client -->
       <div class="g-recaptcha" data-sitekey="{{ site.staticman.recaptcha.sitekey }}"></div>
 
       <div class="warning-box" id="warning-box"></div>
@@ -36,7 +36,6 @@
 
 <script>
 $(document).ready(function () {
-
   function saveToLocalStorage() {
     if ($('#remember_me').is(':checked')) {
       localStorage.setItem('name', $('#name').val());
@@ -46,78 +45,100 @@ $(document).ready(function () {
     }
   }
 
+  function loadFromLocalStorage() {
+    if (localStorage.getItem('name')) {
+      $('#name').val(localStorage.getItem('name'));
+      $('#email').val(localStorage.getItem('email'));
+      $('#url').val(localStorage.getItem('url'));
+      const savedAvatar = localStorage.getItem('avatar_url');
+      if (savedAvatar) $('#robohash-image').attr('src', savedAvatar);
+    }
+  }
+
+  // Keep an in-memory avatarUrl; generate from name (or swap to email if you prefer)
+  let avatarUrl = 'https://robohash.org/default';
   $('#name').on('blur', function () {
-      const email = $(this).val().trim();
-      if (email) {
-        const avatarUrl = `https://robohash.org/${email}`;
-        $('#avatar_url').val(avatarUrl);
-        $('#robohash-image').attr('src', avatarUrl);  // Optionally update the image preview
+    const val = $(this).val().trim();
+    if (val) {
+      avatarUrl = `https://robohash.org/${encodeURIComponent(val)}`;
+      $('#robohash-image').attr('src', avatarUrl);
+      if ($('#remember_me').is(':checked')) {
+        localStorage.setItem('avatar_url', avatarUrl);
       }
-    });
+    }
+  });
 
   $('#comment-form').on('submit', function (event) {
     event.preventDefault();
-    $captchaCompleted = grecaptcha.getResponse() !== '';
+
     const warningBox = document.getElementById('warning-box');
-    if (!$captchaCompleted) {
-      warningBox.textContent = 'Please fill the required fields and complete the reCAPTCHA.';
-      warningBox.style.display = 'block'; // Show warning box
+    const captchaResponse = grecaptcha.getResponse();
+
+    if (!captchaResponse) {
+      warningBox.textContent = 'Please complete the reCAPTCHA.';
+      warningBox.style.display = 'block';
+      return;
+    } else {
+      warningBox.style.display = 'none';
+    }
+
+    const $submitButton = $('.submit-button');
+    $submitButton.prop('disabled', true).text('Submitting...');
+
+    // Build payload for backend
+    const payload = {
+      postId: $('#postId').val() || '',
+      name: $('#name').val().trim(),
+      message: $('#message').val().trim(),
+      email: $('#email').val().trim() || '',
+      url: $('#url').val().trim() || '',
+      avatarUrl: avatarUrl,
+      gRecaptchaResponse: captchaResponse,
+    };
+
+    // Basic front-end validation
+    if (!payload.name || !payload.message) {
+      warningBox.textContent = 'Name and message are required.';
+      warningBox.style.display = 'block';
+      $submitButton.prop('disabled', false).text('Submit');
       return;
     }
-    else {
-      warningBox.style.display = 'none'; // Hide warning box
-    }
 
-    var $submitButton = $('.submit-button');
-    $submitButton.prop('disabled', true);
-    $submitButton.text('Submitting...');
+    // Persist (if requested)
     saveToLocalStorage();
 
-    const form = this;
-    const formData = new FormData(form);
-    const url = form.action;
-    formData.delete('fields[remember_me]');
-
-    const data = {};
-    formData.forEach((value, key) => {
-      data[key] = value;
-    });
-    const queryString = $.param(data);
-
+    // Send JSON body
     $.ajax({
-      url: url,
+      url: $('#comment-form').attr('action'),
       type: 'POST',
-      data: queryString,
+      data: JSON.stringify(payload),
       processData: false,
-      contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+      contentType: 'application/json; charset=UTF-8',
       success: function (data) {
-        if (data.success) {
-          window.location.href = "/pages/thank-you";
+        // If your backend returns a boolean or an object with success/message
+        const ok = (data === true) || (data && data.success);
+        if (ok) {
+          window.location.href = '/pages/thank-you';
         } else {
-          console.error('Error submitting comment: ' + data.message);
-          window.location.href = "/pages/sorry";
+          console.error('Error submitting comment:', data && data.message);
+          window.location.href = '/pages/sorry';
         }
       },
       error: function (jqXHR, textStatus, errorThrown) {
         console.error('Error:', errorThrown);
         console.error('Status:', textStatus);
         console.error('Response:', jqXHR.responseText);
-        window.location.href = "/pages/sorry";
+        window.location.href = '/pages/sorry';
+      },
+      complete: function () {
+        // Reset captcha so user can retry if needed
+        grecaptcha.reset();
+        $submitButton.prop('disabled', false).text('Submit');
       }
     });
   });
 
   loadFromLocalStorage();
-
-  function loadFromLocalStorage() {
-    if (localStorage.getItem('name')) {
-      $('#name').val(localStorage.getItem('name'));
-      $('#email').val(localStorage.getItem('email'));
-      $('#url').val(localStorage.getItem('url'));
-      $('#avatar_url').val(localStorage.getItem('avatar_url'));
-      $('#robohash-image').attr('src', localStorage.getItem('avatar_url'));
-    }
-  }
 });
 </script>
 {% endif %}
