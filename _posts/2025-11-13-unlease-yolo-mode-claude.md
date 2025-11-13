@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Unlease YOLO mode Claude Code in Windows WSL2"
+title: "Unleash YOLO Mode for Claude Code in Windows WSL2"
 date: 2025-11-13 00:00
 comments: true
 categories: ["coding"]
@@ -8,20 +8,25 @@ categories: ["coding"]
 
 # Introduction
 
-I have been using AI coding assistants for a while now. Anthropic's Claude Code is my current favorite and I use it daily for tasks ranging simple, coding tasks, to Windows OS automations, to massive refacts and feature development. Sometimes, I just want to let the agent loose and if on the right track, review its work when it's done. You can do that with virtual environments that Anthropic or OpenAI sets up(ie for Codex) but
-when using those you are typically constraint most of the time by what these companies give you. That's true both in terms of features of the environment(can I run containers?), processing speed and power and finally you can't see instantly the results like you do when these tools run locally.
+I’ve been using AI coding assistants for a while now. Anthropic’s **Claude Code** is my current favorite, and I use it daily for tasks ranging from simple coding jobs to Windows OS automations, massive refactors, and full feature development. Sometimes I just want to let the agent loose—and if it’s on the right track, review its work when it’s done.
 
-In this blog I will show you how to leverage what's known as Claude Code YOLO mode. A way that is to run Claude Code so it will never ask you for permissions. It can do whatever it wants, run crazy while it tries to figure out the problem you set for it. I am a firm believer that in order to unlock the full power of these tools, a constraint environment is needed where you can give them full permissions and see what they can achieve. Our objective will be to minimize permission interactions and maximize direction with a little guidance as possible.
+You can do that with the virtual environments that Anthropic or OpenAI provide (like Codex), but those are often restrictive. You’re limited by what these companies give you—features of the environment (can I run containers?), processing speed, and power—and you can’t see results as instantly as when these tools run locally.
+
+In this post, I’ll show you how to leverage what’s known as **Claude Code YOLO mode**: a way to run Claude Code without permission prompts. It can do whatever it wants—run wild while it figures out the problem you’ve given it. I’m a firm believer that to unlock the full potential of these tools, you need a *constrained sandbox* where you can give them full permissions safely and see what they’re capable of.
+
+Our objective will be to minimize permission interruptions and maximize autonomy—with as little guidance as possible.
 
 # Requirements
-To follow this guide, you'll need a Windows machine with Virtualization Enabled. You'll also need Docker for Desktop installed if you want to leverage docker within the virtual environment.
 
+To follow this guide, you’ll need a Windows machine with **Virtualization Enabled**. You’ll also need **Docker Desktop** installed if you want to leverage Docker inside the virtual environment.
 
 # Enter WSL2
 
-A virtual environment is the first thing that comes to mind. You can go full virtual machine with the likes of Virtual Box, but we can go much more minimal with something such as WSL. The Windows Subsystem for Linux(WSL) is a capability of Windows that allows you to run several available distros such as Ubuntu in a virtual environment without installing anything other than what Windows comes with. You can learn how to install WSL and pick a distro [here](https://learn.microsoft.com/en-us/windows/wsl/install).
+A virtual environment is the first thing that comes to mind. You could go full virtual machine with VirtualBox, but we can go lighter with **WSL**.
 
-For my little setup, I picked Ubuntu-24.04.
+The **Windows Subsystem for Linux (WSL)** lets you run Linux distributions (like Ubuntu) inside Windows without needing a traditional VM. You can learn how to install WSL and pick a distro [here](https://learn.microsoft.com/en-us/windows/wsl/install).
+
+For my setup, I picked **Ubuntu 24.04**.
 
 ```bash
 # Install the distro
@@ -37,33 +42,38 @@ kostas@ANDROMEDA:/$
 ```
 
 # Disable Automount
-By default, WSL will automount your filesystem. Remember when I said that we'll let this little beast loose? Well, giving it access to all your files including Windows and Program Files is a bad idea I reckon.
-And so, we'll be very picky of the files we'll let it see by default. We'll achieve that by modifying two files, /etc/fstab and /etc/wsl.config.
+
+By default, WSL automatically mounts your Windows filesystem. Remember when I said we’d let this little beast loose? Giving it access to all your files—including *Windows* and *Program Files*—isn’t the best idea.
+
+We’ll be very selective about what files it can see by default. We’ll achieve that by modifying two files: `/etc/fstab` and `/etc/wsl.conf`.
 
 ## Disable Automount
-Open /etc/wsl.conf or create if it doesn't exist and set the following values:
+
+Open `/etc/wsl.conf` (create it if it doesn’t exist) and set the following values:
 
 ```conf
 [automount]
 enabled=false
-mountFsTab = true
+mountFsTab=true
 
 [interop]
 enabled=true
 appendWindowsPath=false
 ```
 
-Now you have disabled automount, you have requested to mount only directories found in fstab(more on that later) and you also asked it to not append your windows PATH which may have funny consequences.
+This disables automount, ensures only the directories listed in `fstab` are mounted, and prevents WSL from appending your Windows PATH (which can have odd side effects).
 
 ## Pick the folders you want to share
-Open fstab
+
+Now open your `fstab` file:
+
 ```bash
 sudo nano /etc/fstab
 ```
 
-The first two lines are so the Visual Studio Code WSL extension can work and you can connect to WSL from it. If you don't have a requirement to work with VS Code, you can ommit them.
+The first two lines are required for the Visual Studio Code WSL extension so that you can connect from VS Code. If you don’t plan to use VS Code, you can omit them.
 
-Finally, you can see c:/dev which points to where you have your code. Adjust accordingly.
+The third line mounts your `c:/dev` folder, which is where I keep my code. Adjust paths as needed.
 
 ```txt
 c:/Users/konst/.vscode/extensions   /mnt/c/Users/konst/.vscode/extensions   drvfs   defaults,ro   0   0
@@ -71,40 +81,43 @@ c:/Users/konst/vscode-remote-wsl    /mnt/c/Users/konst/vscode-remote-wsl    drvf
 c:/dev    /mnt/dev    drvfs    defaults,metadata,uid=1000,gid=1000,umask=022    0    0
 ```
 
-Once you have done all of the above, restart wsl.
+Once you’re done, restart WSL:
+
 ```bash
 wsl.exe --shutdown
-# Wait the 8 magical seconds
+# Wait a few seconds...
 
 # Jump back in
 > wsl -d Ubuntu-24.04
 ```
 
 # Providing Docker
-My setup is using Aspire but also TestContainers to run tests and also run my projects. That means you need docker available.
 
-Firstly, install Docker Desktop.
+My setup uses **Aspire** and **TestContainers** to run tests and projects, so Docker needs to be available.
 
-### Configure to use WSL2 based engine
-In Docker Desktop settings enable these values:
+First, install **Docker Desktop**.
+
+### Configure Docker to use the WSL2 engine
+
+In Docker Desktop settings, enable these options:
 
 ![Docker Desktop WSL2 engine settings](https://i.codesennin.com/blog/unlease-yolo-mode-claude/docker-desktop-wsl2-engine-setting.png)
 
 ![Docker Desktop Ubuntu integration settings](https://i.codesennin.com/blog/unlease-yolo-mode-claude/docker-desktop-ubuntu-wsl-integration.png)
 
-Now restart your WSL distro like we did before and the docker command will be available in your terminal.
+Now restart your WSL distro as before, and the `docker` command will be available in your terminal.
 
-# Install node to WSL
-Next up we'll install npm so we can run claude code.
+# Install Node.js in WSL
 
-In WSL:
+Next, install Node.js and npm so we can run Claude Code.
+
 ```bash
 sudo apt update
 sudo apt install -y ca-certificates curl gnupg
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt install -y nodejs
 
-# Verify your installation
+# Verify installation
 node -v
 npm -v
 
@@ -114,13 +127,15 @@ v20.x.x
 ```
 
 # Install Claude Code in WSL
-Now that we have npm, we'll install Claude Code
+
+Now that we have npm, install Claude Code globally:
 
 ```bash
 npm install -g @anthropic-ai/claude-code
 ```
 
-# Finally, let's turn on YOLO mode ON
+# Finally, Turn YOLO Mode ON
+
 Moment of truth.
 
 ```bash
@@ -129,17 +144,19 @@ claude --dangerously-skip-permissions
 
 ![Unlimited power meme](https://i.codesennin.com/blog/unlease-yolo-mode-claude/star-wars-unlimited-power-meme.png)
 
-After a few prompts, you'll land to this menu with bypass permissions on.
+After a few prompts, you’ll land in this menu with bypass permissions enabled:
 
 ![Claude Code terminal with bypass permissions enabled](https://i.codesennin.com/blog/unlease-yolo-mode-claude/claude-code-bypass-permissions-terminal.png)
 
 # Out of Scope
-Git commits and pushes are not in scope of this blog. In order to allow it to push and commit, you'll need to wire up some .ssh keys to it and allow it to commit and push on your behalf.
-For starters, you can configure its .gitconfig to perform commits so its work can be staged but I think that simply sharing your .ssh keys may give it too much power which I don't feel comfortable in this mode.
-That said, I think simply asking it to commit its work so you can finally push is completely fine.
+
+Git commits and pushes are **out of scope** for this post. To allow Claude to commit and push, you’d need to configure SSH keys and give it access to your repositories.
+
+For now, you can configure `.gitconfig` so it can stage and commit locally, but sharing your SSH keys gives it more power than I’d recommend in YOLO mode. It’s safer to ask it to commit its work, then manually review and push yourself.
 
 # Conclusion
 
-In this blog we learned how to harness the full power of Claude Code locally by giving it full permissions within a controlled environment.
+In this post, we learned how to unleash Claude Code’s full power locally by giving it unrestricted permissions inside a controlled environment.
 
-Go now, fix a bug, ask it to refactor something and see it in action.
+Go now—fix a bug, refactor something, and watch it in action.
+
