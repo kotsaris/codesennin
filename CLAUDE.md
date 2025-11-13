@@ -90,6 +90,53 @@ bundle exec rake host
 - Responsive design with live reload support
 - Image assets in `_site/images/` including social icons and post images
 
+### Social Media Thumbnails
+
+The site supports Open Graph and Twitter Card meta tags for rich social media previews when blog posts are shared.
+
+**Optimal Image Specifications:**
+- **Recommended size:** 1200 x 630 pixels (1.91:1 aspect ratio)
+- **File format:** PNG or JPG
+- **File size:** Under 1MB for fast loading
+- **This size works perfectly for:** LinkedIn, Facebook, Twitter/X, Bluesky, WhatsApp
+
+**Adding a Thumbnail to a Blog Post:**
+
+Add the `image` field to the post's front matter:
+
+```yaml
+---
+layout: post
+title: "Your Blog Post Title"
+date: 2025-11-13 00:00
+comments: true
+categories: ["coding"]
+image: https://i.codesennin.com/blog/your-post-slug/thumbnail-image.png
+---
+```
+
+**Image Storage:**
+- Store images in the `codesennin.images` repository (sibling directory to this repo)
+- Path structure: `codesennin.images/blog/[post-slug]/[image-name].png`
+- Images are served via CDN at `https://i.codesennin.com/blog/[post-slug]/[image-name].png`
+
+**Meta Tags Implementation:**
+- Open Graph tags defined in `_includes/head.html` (lines 18-28)
+- Twitter Card tags defined in `_includes/head.html` (lines 30-40)
+- Automatically includes `og:image:secure_url` for HTTPS
+- Falls back to `/favicon.png` if no image specified
+
+**Testing Social Media Previews:**
+- **LinkedIn:** https://www.linkedin.com/post-inspector/
+- **Facebook:** https://developers.facebook.com/tools/debug/
+- **Twitter:** https://cards-dev.twitter.com/validator
+
+**Important Notes:**
+- LinkedIn aggressively caches Open Graph data - use Post Inspector to force refresh
+- Always use descriptive filenames for images (not generic names like `image-1.png`)
+- Crop images to exact 1200x630 dimensions to avoid platform auto-cropping
+- Use Python PIL or ImageMagick for image manipulation if needed
+
 ## Claude Code Commands
 
 ### `/new-blog` - Create New Blog Post
