@@ -161,6 +161,43 @@ The command will:
 - Default to `coding` category if none specified
 - Generate a clean URL-friendly filename from the title
 
+### `/check-blog` - Pre-Publish Checklist
+
+Runs a comprehensive checklist to verify a blog post is ready for publishing.
+
+**Usage:**
+```
+/check-blog
+```
+
+The command will verify:
+- **Front Matter:** title, date, categories, description, image, comments
+- **Social Media Thumbnail:** proper URL, file exists, correct dimensions (1200x630), file size under 1MB, descriptive filename
+- **Content Quality:** has content, has headings, no TODO markers, no broken image links
+- **File Naming:** correct format, date matches, slug matches image folder
+
+**Output:**
+Presents results as a checklist with ✓ for pass and ✗ for fail, with final status of READY or NOT READY.
+
+**Important:** This check does NOT publish the post - use `/publish-blog` after fixing any issues.
+
+### `/move-images` - Move Images to CDN Repository
+
+Moves images from `_drafts/` folder to the `codesennin.images` repository for CDN hosting.
+
+**Usage:**
+```
+/move-images
+```
+
+The command will:
+- Scan for images in the `_drafts` folder
+- Identify which blog post references them
+- Inspect and rename images with descriptive filenames based on content
+- Move images to `codesennin.images/blog/[slug]/` folder
+- Update blog post references to use CDN URLs
+- Commit and push changes to codesennin.images repository
+
 ## Comments System Architecture
 
 The blog uses a custom commenting system with these components:
