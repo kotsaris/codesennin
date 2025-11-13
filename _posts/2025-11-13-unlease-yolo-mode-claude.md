@@ -160,3 +160,6 @@ In this post, we learned how to unleash Claude Code’s full power locally by gi
 
 Go now—fix a bug, refactor something, and watch it in action.
 
+---
+
+*Handwritten by Kosta and slightly polished with ChatGPT 5.1.*
