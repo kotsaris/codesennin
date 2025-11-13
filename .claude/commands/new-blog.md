@@ -14,6 +14,8 @@ Creates a new draft blog post with proper front matter and file naming.
 /new-blog "Philosophy and Technology" philosophy,technology
 ```
 
+# File Name
+The file you'll create needs to be an abbreviated readable version of the blog title. Maximum 30 characters.
 ## Implementation
 
 ```javascript

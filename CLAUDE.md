@@ -114,10 +114,21 @@ The command will:
 - Default to `coding` category if none specified
 - Generate a clean URL-friendly filename from the title
 
+## Comments System Architecture
+
+The blog uses a custom commenting system with these components:
+
+- **Backend API:** Azure Functions app at `https://codesennin-comments-g8budedeahg4ace7az.westeurope-01.azurewebsites.net/api/PostComment`
+- **Data Storage:** Comments stored in `_data/comments/` directory, organized by post slug
+- **Frontend:** Custom JavaScript form with reCAPTCHA validation and Robohash avatar generation
+- **Comment Display:** Jekyll liquid templates read from `site.data.comments` to render comments
+- **Features:** Remember me functionality via localStorage, avatar generation based on name
+
 ## Development Notes
 
 - The site auto-regenerates during development with `--livereload` and `--force_polling`
 - Draft posts are included in development builds via `--drafts` flag
 - HTML validation runs via html-proofer gem with custom ignore rules for specific URLs and status codes
 - Docker exposes ports 4000 (Jekyll) and 35729 (LiveReload)
+- When working with comments, data is stored in YAML format in `_data/comments/[post-slug]/`
 
