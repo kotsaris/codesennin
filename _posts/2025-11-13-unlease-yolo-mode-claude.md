@@ -4,6 +4,7 @@ title: "Unleash YOLO Mode for Claude Code in Windows WSL2"
 date: 2025-11-13 00:00
 comments: true
 categories: ["coding"]
+description: Learn how to run Claude Code with unrestricted permissions in a safe WSL2 sandbox. Setup guide for YOLO mode with full autonomy, Docker support, and zero permission prompts.
 image: https://i.codesennin.com/blog/unlease-yolo-mode-claude/caged-ai-breaking-free.png
 ---
 
