@@ -13,7 +13,7 @@
       <label for="name">Display Name</label>
       <input type="text" id="name" required>
 
-      <label for="url">Your URL (Optional)</label>
+      <label for="url">Your full URL(optional. Blog/Github/Twitter/etc) </label>
       <input type="text" id="url">
 
       <label for="message">Message</label>
@@ -95,6 +95,28 @@ $(document).ready(function () {
       warningBox.style.display = 'block';
       $submitButton.prop('disabled', false).text('Submit');
       return;
+    }
+
+    // Validate URL if provided
+    if (payload.url) {
+      // Check if URL is absolute and well-formed
+      const urlPattern = /^https?:\/\/.+/i;
+      if (!urlPattern.test(payload.url)) {
+        warningBox.textContent = 'URL must be absolute and well-formed (e.g., https://example.com).';
+        warningBox.style.display = 'block';
+        $submitButton.prop('disabled', false).text('Submit');
+        return;
+      }
+
+      // Additional validation using URL constructor
+      try {
+        new URL(payload.url);
+      } catch (e) {
+        warningBox.textContent = 'URL is not valid. Please provide a complete URL (e.g., https://example.com).';
+        warningBox.style.display = 'block';
+        $submitButton.prop('disabled', false).text('Submit');
+        return;
+      }
     }
 
     // Persist (if requested)
