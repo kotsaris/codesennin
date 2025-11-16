@@ -31,6 +31,7 @@
   display: block;
   margin-top: 10px;
   font-weight: bold;
+  font-size: 16px; /* Consistent sizing for mobile */
 }
 
 .input-container input[type="text"],
@@ -44,6 +45,7 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   box-sizing: border-box; /* Ensure padding and border are included in the width */
+  font-size: 16px; /* Prevent iOS auto-zoom on focus */
 }
 
 .input-container input[type="checkbox"] {
@@ -160,6 +162,10 @@
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
+  #comments {
+    padding: 15px; /* Reduce padding on mobile */
+  }
+
   .form-container {
     flex-direction: column; /* Stack items vertically on small screens */
   }
@@ -172,6 +178,14 @@
 
   .input-container {
     width: 100%; /* Full width for input container */
+    max-width: 100%; /* Prevent overflow */
+  }
+
+  .input-container input[type="text"],
+  .input-container input[type="email"],
+  .input-container input[type="url"],
+  .input-container textarea {
+    max-width: 100%; /* Ensure inputs don't overflow */
   }
 
   .g-recaptcha {
