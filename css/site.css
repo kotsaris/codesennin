@@ -135,6 +135,16 @@
   margin-bottom: 5px;
 }
 
+.comment-author-info strong a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+.comment-author-info strong a:hover {
+  color: #005bb5;
+  text-decoration: underline;
+}
+
 .comment-date {
   color: #777;
   font-size: 0.9em;

@@ -23,7 +23,12 @@
       <div class="comment-header">
         <img class="comment-avatar" src="{{ comment.avatar_url | escape }}" alt="{{ comment.name | escape }}" />
         <div class="comment-author-info">
-          <strong>{{ comment.name | escape }}</strong> <span class="comment-date">{{ comment.date | date: "%B %d, %Y" | escape }}</span>
+          {% if comment.url and comment.url != "" %}
+            <strong><a href="{{ comment.url | escape }}" target="_blank" rel="noopener noreferrer">{{ comment.name | escape }}</a></strong>
+          {% else %}
+            <strong>{{ comment.name | escape }}</strong>
+          {% endif %}
+          <span class="comment-date">{{ comment.date | date: "%B %d, %Y" | escape }}</span>
         </div>
       </div>
       <div class="comment-body">
