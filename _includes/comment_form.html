@@ -13,9 +13,6 @@
       <label for="name">Display Name</label>
       <input type="text" id="name" required>
 
-      <label for="email">E-mail (Optional)</label>
-      <input type="email" id="email">
-
       <label for="url">Your URL (Optional)</label>
       <input type="text" id="url">
 
@@ -23,6 +20,9 @@
       <textarea id="message" rows="4" required></textarea>
 
       <label><input id="remember_me" type="checkbox"> Remember me</label>
+      <br/>
+
+      <label><input id="privacy_agreement" type="checkbox" required> I have read and agree to the <a href="/privacy" target="_blank">Privacy Policy</a> *</label>
       <br/>
 
       <!-- reCAPTCHA: keep only the site key on the client -->
@@ -39,7 +39,6 @@ $(document).ready(function () {
   function saveToLocalStorage() {
     if ($('#remember_me').is(':checked')) {
       localStorage.setItem('name', $('#name').val());
-      localStorage.setItem('email', $('#email').val());
       localStorage.setItem('url', $('#url').val());
       localStorage.setItem('avatar_url', $('#avatar_url').val());
     }
@@ -48,14 +47,13 @@ $(document).ready(function () {
   function loadFromLocalStorage() {
     if (localStorage.getItem('name')) {
       $('#name').val(localStorage.getItem('name'));
-      $('#email').val(localStorage.getItem('email'));
       $('#url').val(localStorage.getItem('url'));
       const savedAvatar = localStorage.getItem('avatar_url');
       if (savedAvatar) $('#robohash-image').attr('src', savedAvatar);
     }
   }
 
-  // Keep an in-memory avatarUrl; generate from name (or swap to email if you prefer)
+  // Keep an in-memory avatarUrl; generate from name
   let avatarUrl = 'https://robohash.org/default';
   $('#name').on('blur', function () {
     const val = $(this).val().trim();
@@ -72,6 +70,14 @@ $(document).ready(function () {
     event.preventDefault();
 
     const warningBox = document.getElementById('warning-box');
+
+    // Check privacy policy agreement
+    if (!$('#privacy_agreement').is(':checked')) {
+      warningBox.textContent = 'Please agree to the Privacy Policy.';
+      warningBox.style.display = 'block';
+      return;
+    }
+
     const captchaResponse = grecaptcha.getResponse();
 
     if (!captchaResponse) {
@@ -90,7 +96,6 @@ $(document).ready(function () {
       postId: $('#postId').val() || '',
       name: $('#name').val().trim(),
       message: $('#message').val().trim(),
-      email: $('#email').val().trim() || '',
       url: $('#url').val().trim() || '',
       avatarUrl: avatarUrl,
       gRecaptchaResponse: captchaResponse,

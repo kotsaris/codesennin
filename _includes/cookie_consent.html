@@ -1,0 +1,62 @@
+<!-- Cookie Consent by Osano -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+<script>
+window.addEventListener('load', function(){
+  // Initialize Cookie Consent
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {
+        "background": "#000",
+        "text": "#fff"
+      },
+      "button": {
+        "background": "#f1d600",
+        "text": "#000"
+      }
+    },
+    "type": "opt-in",
+    "content": {
+      "message": "This website uses cookies to enhance your experience and analyze site traffic.",
+      "dismiss": "Got it!",
+      "allow": "Accept cookies",
+      "deny": "Decline",
+      "link": "Learn more",
+      "href": "/privacy",
+      "policy": "Cookie Policy"
+    },
+    onStatusChange: function(status, chosenBefore) {
+      // Load Google Analytics if user accepts cookies
+      if (this.hasConsented()) {
+        loadGoogleAnalytics();
+      }
+    },
+    onInitialise: function(status) {
+      // Load Google Analytics if user has already consented
+      if (this.hasConsented()) {
+        loadGoogleAnalytics();
+      }
+    }
+  });
+});
+
+// Function to load Google Analytics
+function loadGoogleAnalytics() {
+  if (window.gaLoaded) return; // Prevent double loading
+  window.gaLoaded = true;
+
+  // Load Google Analytics script
+  var script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics_tracking_id }}';
+  document.head.appendChild(script);
+
+  // Initialize gtag
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.google_analytics_tracking_id }}', {
+    'anonymize_ip': true // Anonymize IPs for better privacy
+  });
+}
+</script>
