@@ -25,9 +25,6 @@
       <label><input id="privacy_agreement" type="checkbox" required> I have read and agree to the <a href="/privacy" target="_blank">Privacy Policy</a> *</label>
       <br/>
 
-      <!-- reCAPTCHA: keep only the site key on the client -->
-      <div class="g-recaptcha" data-sitekey="{{ site.commenting.recaptcha.sitekey }}"></div>
-
       <div class="warning-box" id="warning-box"></div>
       <button type="submit" class="submit-button">Submit</button>
     </div>
@@ -76,14 +73,6 @@ $(document).ready(function () {
       warningBox.textContent = 'Please agree to the Privacy Policy.';
       warningBox.style.display = 'block';
       return;
-    }
-
-    const captchaResponse = grecaptcha.getResponse();
-
-    if (!captchaResponse) {
-      warningBox.textContent = 'Please complete the reCAPTCHA.';
-      warningBox.style.display = 'block';
-      return;
     } else {
       warningBox.style.display = 'none';
     }
@@ -98,7 +87,6 @@ $(document).ready(function () {
       message: $('#message').val().trim(),
       url: $('#url').val().trim() || '',
       avatarUrl: avatarUrl,
-      gRecaptchaResponse: captchaResponse,
     };
 
     // Basic front-end validation
@@ -136,8 +124,6 @@ $(document).ready(function () {
         window.location.href = '/pages/sorry';
       },
       complete: function () {
-        // Reset captcha so user can retry if needed
-        grecaptcha.reset();
         $submitButton.prop('disabled', false).text('Submit');
       }
     });

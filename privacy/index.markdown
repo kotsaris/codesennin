@@ -26,7 +26,7 @@ This site uses Google Analytics to understand how visitors interact with the con
 You can opt out of Google Analytics by:
 - Declining cookies when you first visit (via the cookie banner)
 
-#### Comments
+#### Commenting
 
 If you post a comment on this blog:
 - Only your **display name** and **message** are required
@@ -39,7 +39,6 @@ If you post a comment on this blog:
 
 This site uses cookies for:
 - **Google Analytics:** Tracking site usage (requires your consent)
-- **reCAPTCHA:** Spam protection on comment forms (Google service)
 - **Local Storage:** Remembering your name and URL if you use "Remember Me" on comments
 
 ### What I Don't Do
@@ -56,7 +55,6 @@ This site uses cookies for:
 This site uses these third-party services that have their own privacy policies:
 
 - **Google Analytics** - [Privacy Policy](https://policies.google.com/privacy)
-- **Google reCAPTCHA** - [Privacy Policy](https://policies.google.com/privacy)
 - **Robohash** (avatar generation) - [https://robohash.org](https://robohash.org)
 - **GitHub Pages** (hosting) - [Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
 
