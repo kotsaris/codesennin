@@ -78,3 +78,6 @@ If all pass or only warnings: `Status: READY`
 - Run this check before publishing to catch issues early
 - Fix any ✗ items before publishing
 - Warnings (like file size slightly over 1MB) won't block publishing but should be considered
+
+
+Finally, advise the user to check the published blog url with https://www.linkedin.com/post-inspector/i in order to see if everything works best.
