@@ -6,3 +6,5 @@
 4. Move images to a folder named after the slug of the blog that references them. eg codesennin.images\blog\my-new-blog\frog.png
 5. Once all images are moved, commit and push codesennin.images
 6. For each image that you moved, update the place where it was referenced in the blog entry under _drafts. ie ![alt text](image-2.png) should become ![alt text](https://i.codesennin.com/blog/my-new-blog/image-2.png)
+
+Never replace links with other photos other than the ones they originally pointed to(ie determining that two image links point to the same photo when they point to a different image file)
