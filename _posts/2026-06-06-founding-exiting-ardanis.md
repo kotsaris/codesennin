@@ -26,7 +26,7 @@ Ardanis was made up of five founders. Three Irish founders, one Chinese founder,
 
 # Clients
 
-One of the first lessons I learned was about clients. We lacked a product, probably our biggest weakness, and as such, most of our revenue came from services. We were very unsuccessful in landing clients beyond our network. For many years, our biggest clients came from our network. They came from people who knew who we were and what we were capable of building. The company was a software boutique, a term used to describe companies that charge above market rates, but most certainly lower than the likes of behemoths like Accenture. So, lesson number one: if you want to start a services company, your network is the fuel that gets you into orbit. But it will only get you so far before you need Stage 2: a real sales engine.
+One of the first lessons I learned was about clients. We lacked a product, probably our biggest weakness, and as such, most of our revenue came from services. Landing clients beyond our network proved difficult for us for many years. For many years, our biggest clients came from our network. They came from people who knew who we were and what we were capable of building. The company was a software boutique, a term used to describe companies that charge above market rates, but most certainly lower than the likes of behemoths like Accenture. So, lesson number one: if you want to start a services company, your network is the fuel that gets you into orbit. But it will only get you so far before you need Stage 2: a real sales engine.
 
 # Beyond the network
 
