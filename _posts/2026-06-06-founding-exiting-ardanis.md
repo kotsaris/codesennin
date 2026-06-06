@@ -5,7 +5,7 @@ date: 2026-06-06 00:00
 comments: true
 categories: ["coding"]
 description: "The story of co-founding Ardanis in 2016, growing a software boutique in Ireland, winning the IBEC Project of the Year, and the lessons learned along the way to the exit."
-image: https://i.codesennin.com/blog/founding-exiting-ardanis/mount-olympus-summit-thumbnail.jpg
+image: https://i.codesennin.com/blog/founding-exiting-ardanis/sunflower-bloom-thumbnail.jpg
 ---
 
 # Introduction
