@@ -90,19 +90,25 @@ bundle exec rake host
 - Responsive design with live reload support
 - Image assets in `_site/images/` including social icons and post images
 
-### Social Media Thumbnails
+### Post Images and Social Media Thumbnails
 
-The site supports Open Graph and Twitter Card meta tags for rich social media previews when blog posts are shared.
+The site supports separate images for social/list thumbnails and the top image shown on the post page.
+
+- `image` is the social media/list thumbnail. It feeds Open Graph, Twitter Card, and index/list preview images.
+- `featured_image` is the top featured image on the post page itself.
+- If `featured_image` is omitted, post pages fall back to `image` as the featured image for backward compatibility.
+- To use different images, set both fields in the post front matter.
 
 **Optimal Image Specifications:**
-- **Recommended size:** 1200 x 630 pixels (1.91:1 aspect ratio)
+- **Recommended thumbnail size (`image`):** 1200 x 630 pixels (1.91:1 aspect ratio)
 - **File format:** PNG or JPG
 - **File size:** Under 1MB for fast loading
 - **This size works perfectly for:** LinkedIn, Facebook, Twitter/X, Bluesky, WhatsApp
+- **Featured image (`featured_image`):** does not need to follow the social thumbnail sizing rules; choose dimensions and aspect ratio that fit the post layout and image content
 
-**Adding a Thumbnail to a Blog Post:**
+**Adding Images to a Blog Post:**
 
-Add the `image` field to the post's front matter:
+Add `image` for the social/list thumbnail. Add `featured_image` when the post page should show a different top image:
 
 ```yaml
 ---
@@ -111,20 +117,22 @@ title: "Your Blog Post Title"
 date: 2025-11-13 00:00
 comments: true
 categories: ["coding"]
-image: https://i.codesennin.com/blog/your-post-slug/thumbnail-image.png
+image: https://i.codesennin.com/blog/your-post-slug/thumbnail-image.jpg
+featured_image: https://i.codesennin.com/blog/your-post-slug/top-post-image.jpg
 ---
 ```
 
 **Image Storage:**
 - Store images in the `codesennin.images` repository (sibling directory to this repo)
-- Path structure: `codesennin.images/blog/[post-slug]/[image-name].png`
-- Images are served via CDN at `https://i.codesennin.com/blog/[post-slug]/[image-name].png`
+- Path structure: `codesennin.images/blog/[post-slug]/[image-name].jpg`
+- Images are served via CDN at `https://i.codesennin.com/blog/[post-slug]/[image-name].jpg`
 
 **Meta Tags Implementation:**
 - Open Graph tags defined in `_includes/head.html` (lines 18-28)
 - Twitter Card tags defined in `_includes/head.html` (lines 30-40)
 - Automatically includes `og:image:secure_url` for HTTPS
-- Falls back to `/favicon.png` if no image specified
+- Social meta tags use `page.image` and fall back to `/favicon.png` if no image specified
+- Post-page featured image rendering is in `_includes/article.html` and uses `page.featured_image | default: page.image`
 
 **Testing Social Media Previews:**
 - **LinkedIn:** https://www.linkedin.com/post-inspector/
@@ -134,7 +142,8 @@ image: https://i.codesennin.com/blog/your-post-slug/thumbnail-image.png
 **Important Notes:**
 - LinkedIn aggressively caches Open Graph data - use Post Inspector to force refresh
 - Always use descriptive filenames for images (not generic names like `image-1.png`)
-- Crop images to exact 1200x630 dimensions to avoid platform auto-cropping
+- Crop thumbnail images to exact 1200x630 dimensions to avoid platform auto-cropping
+- Do not duplicate the featured image as a markdown image at the top of a post when `featured_image` is set; the layout renders it automatically
 - Use Python PIL or ImageMagick for image manipulation if needed
 
 ## Claude Code Commands
@@ -172,7 +181,8 @@ Runs a comprehensive checklist to verify a blog post is ready for publishing.
 
 The command will verify:
 - **Front Matter:** title, date, categories, description, image, comments
-- **Social Media Thumbnail:** proper URL, file exists, correct dimensions (1200x630), file size under 1MB, descriptive filename
+- **Social Media Thumbnail:** `image` has a proper URL, file exists, correct dimensions (1200x630), file size under 1MB, descriptive filename
+- **Featured Image:** `featured_image` is present when the top post image should differ from the social/list thumbnail, uses a CDN URL, and is not duplicated as the first markdown image
 - **Content Quality:** has content, has headings, no TODO markers, no broken image links
 - **File Naming:** correct format, date matches, slug matches image folder
 
