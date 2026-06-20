@@ -5,10 +5,12 @@ date: 2026-06-20 00:00
 comments: true
 categories: ["philosophy"]
 description: "A Stoic reflection on using the trichotomy of control to face difficult software projects, separate outcomes from actions, and focus energy where it can actually make a difference."
-image: https://i.codesennin.com/blog/trichotomy-of-control/trichotomy-of-control-thumbnail.png
+image: https://i.codesennin.com/blog/trichotomy-of-control/trichotomy-of-control-thumbnail.jpg
 ---
 
 # Trichotomy of control.
+
+![Morning coffee at Mount Olympus](https://i.codesennin.com/blog/trichotomy-of-control/mount-olympus-morning-coffee.jpg)
 
 My job as a Software Engineer and Consultant is many times to join a project which is in a dire situation. A while back, I joined a project that couldn't find success two years into development, and I was tasked to turn it around.
 
