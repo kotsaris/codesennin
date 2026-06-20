@@ -14,9 +14,10 @@
 {% else %}
 	<h1 class="title" itemprop="name">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
 	{% include post/meta.html %}
-	{% if page.image %}
+	{% assign featured_image = page.featured_image | default: page.image %}
+	{% if featured_image %}
 	<div class="featured-image">
-		<img src="{{ page.image }}" alt="{{ page.title }}">
+		<img src="{{ featured_image }}" alt="{{ page.title }}">
 	</div>
 	{% endif %}
 	<div class="entry-content" itemprop="articleBody">{{ content }}</div>
