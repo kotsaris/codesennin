@@ -1,9 +1,11 @@
 ---
 layout: post
 title: "Trichotomy of Control"
-date: 2024-12-26
+date: 2024-12-26 00:00
 comments: true
-categories: [philosophy]
+categories: ["philosophy"]
+description: "A Stoic reflection on using the trichotomy of control to face difficult software projects, separate outcomes from actions, and focus energy where it can actually make a difference."
+image: https://i.codesennin.com/blog/trichotomy-of-control/trichotomy-of-control-thumbnail.png
 ---
 
 # Trichotomy of control.
@@ -37,5 +39,4 @@ The success of a difficult undertaking is in those things that is partially with
 If your brain asks you whether or not this challenge is going to be a success then give it The Farmer and His Horse answer. [Maybe, we'll see](https://www.youtube.com/watch?v=QmYG0LIznkk).
 
 Hopefully you found this entry useful. If you'd like more Stoicism consider sharing this.
-
 

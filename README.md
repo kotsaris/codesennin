@@ -4,7 +4,26 @@ Welcome to the sources of my blog. Feel free to clone this for your own Jekyll b
 
 ## Run it locally
 
-The following command builds the site and runs it on https://localhost:4000/
+This repo pins Ruby 3.3.6. If you use [mise](https://mise.jdx.dev/), the toolchain is configured in `mise.toml`:
+
+```shell
+mise install
+bundle install
+bundle exec rake serve
+```
+
+The site will run on http://localhost:4000/.
+
+To build and test the site locally:
+
+```shell
+bundle exec rake build
+HTMLPROOFER_IGNORE_EXTERNAL=true bundle exec rake test
+```
+
+`HTMLPROOFER_IGNORE_EXTERNAL=true` keeps the local test focused on the generated site and internal links, avoiding false failures from remote sites that block automated link checks.
+
+On Windows, the following command builds the Docker image and runs the site on http://localhost:4000/:
 
 ```shell
 run-site.ps1
