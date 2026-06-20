@@ -117,3 +117,5 @@ There is a difference.
 If your brain asks you whether this challenge is going to be a success, give it *The Farmer and His Horse* answer:
 
 <a href="https://www.youtube.com/watch?v=QmYG0LIznkk" target="_blank" rel="noopener noreferrer">Maybe. We'll see.</a>
+
+{% include youtube.html id="QmYG0LIznkk" title="The Farmer and His Horse — Maybe. We'll see." %}

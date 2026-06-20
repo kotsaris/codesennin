@@ -1,0 +1,21 @@
+{% comment %}
+  Embeds a responsive YouTube video.
+
+  Usage:
+    {% include youtube.html id="QmYG0LIznkk" %}
+    {% include youtube.html id="QmYG0LIznkk" title="The Farmer and His Horse" %}
+
+  Parameters:
+    id    (required) - the YouTube video id (the v= part of the URL)
+    title (optional) - accessible title for the player; defaults to "YouTube video player"
+
+  Styling is handled by .video-container in css/screen.css (responsive 16:9).
+  Uses youtube-nocookie.com so no tracking cookie is set until the viewer hits play.
+{% endcomment %}
+<div class="video-container">
+  <iframe src="https://www.youtube-nocookie.com/embed/{{ include.id }}"
+          title="{{ include.title | default: 'YouTube video player' }}"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+</div>
